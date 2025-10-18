@@ -11,7 +11,7 @@ sudo apt update && sudo apt install -y \
 # Install Starship prompt
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-
+# TODO: add here
 
 # Helpers: log directory creation, deletions, and symlink creation
 ensure_dir() {

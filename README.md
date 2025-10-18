@@ -14,20 +14,21 @@ cd dotfiles
 bash setup.sh
 ```
 
-## Want to Install
+## TODO
 
-- fig
-- teee
-- jq
-- glow
-- lsd
-- tmux
-- btop
-- ctop
-- oha
-- lazygit
-- yazi
-- repgrep
-- ghq
-- gping
-- fzf
+- Add packages below
+  - fig
+  - teee
+  - jq
+  - glow
+  - lsd
+  - tmux
+  - btop
+  - ctop
+  - oha
+  - lazygit
+  - yazi
+  - repgrep
+  - ghq
+  - gping
+  - fzf
