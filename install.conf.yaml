@@ -12,11 +12,11 @@
     # with a leading `.` stripped if present.
     ~/:
       glob: true
-      path: dotconf/.*
-      exclude: [dotconf/.config]
+      path: src/.*
+      exclude: [src/.config]
     ~/.config/:
       glob: true
-      path: dotconf/.config/**
+      path: src/.config/**
 
 - create:
     ~/.ssh:

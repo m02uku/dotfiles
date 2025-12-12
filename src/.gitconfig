@@ -3,5 +3,3 @@
 	name = m02uku
 [core]
 	editor = nvim
-[safe]
-	directory = *
