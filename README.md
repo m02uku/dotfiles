@@ -1,6 +1,6 @@
 # dotfiles
 
-## dependencies
+## Dependencies
 
 These dependencies are needed to be installed on host machine:
 
