@@ -1,10 +1,21 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 [directory]
-truncation_length = 100
+truncation_length = -1
 truncate_to_repo = false
 
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_commit]
+only_detached = false
+
 [hostname]
+ssh_only = false
+trim_at = ''
+format = '[$ssh_symbol$hostname]($style) '
+
+[localip]
 ssh_only = false
 
 [username]
