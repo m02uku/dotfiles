@@ -19,6 +19,17 @@
     gh
     fzf
     bat
+    bat           # cat 代替
+    delta         # git diff
+    btop          # システムモニター
+    dust          # du 代替
+    duf           # df 代替
+    tealdeer      # tldr
+    procs         # ps 代替
+    tokei         # コード行数
+    hyperfine     # ベンチマーク
+    sd            # sed 代替
+    zellij        # tmux 代替
   ];
 
   # Import modular configurations
@@ -27,6 +38,7 @@
     ./modules/neovim.nix
     ./modules/starship.nix
     ./modules/kitty.nix
+    ./modules/git.nix
   ];
 
   # Let Home Manager manage itself
