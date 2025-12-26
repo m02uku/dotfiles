@@ -27,7 +27,14 @@
         la = "eza -a --icons";
         lt = "eza --tree --icons --git-ignore";
         
-        # neovim
+        # Modern alternatives
+        cat = "bat";
+        top = "btop";
+        du = "dust";
+        df = "duf";
+        ps = "procs";
+        
+        # Editor
         vi = "nvim";
         vim = "nvim";
         
@@ -41,28 +48,40 @@
         gd = "git diff";
         gco = "git checkout";
         gb = "git branch";
+        glog = "git log --oneline --graph --decorate";
         lg = "lazygit";
         
         # Repository navigation
         repo = "cd $(ghq list --full-path | fzf)";
         ghget = "ghq get";
         
-        # Directory navigation with zoxide
-        z = "zoxide";
-        zi = "zoxide query -i";
-        
-        # Search with ripgrep + fzf
-        rgf = "rg --files | fzf --preview 'bat --color=always {}'";
-        
-        # Quick edits
-        ezsh = "nvim ~/dotfiles/modules/zsh.nix";
-        ehm = "nvim ~/dotfiles/home.nix";
-        
-        # Misc
+        # Directory navigation
         ".." = "cd ..";
         "..." = "cd ../..";
         "...." = "cd ../../..";
-        cat = "bat";
+        
+        # zoxide (smart cd)
+        z = "zoxide";
+        zi = "zoxide query -i";
+        
+        # Search utilities
+        rgf = "rg --files | fzf --preview 'bat --color=always {}'";
+        
+        # Zellij (terminal multiplexer)
+        zj = "zellij";
+        zja = "zellij attach";
+        zjl = "zellij list-sessions";
+        zjk = "zellij kill-session";
+        
+        # Quick config edits
+        ezsh = "nvim ~/dotfiles/modules/zsh.nix";
+        ehm = "nvim ~/dotfiles/home.nix";
+        egit = "nvim ~/dotfiles/modules/git.nix";
+        envim = "nvim ~/dotfiles/modules/neovim.nix";
+        
+        # Utilities
+        tldr = "tldr";
+        help = "tldr";
       };
     };
 
