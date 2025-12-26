@@ -15,10 +15,10 @@
     cowsay
     cmatrix
     toilet
-    peco
     zoxide
     gh
     fzf
+    bat
   ];
 
   # Import modular configurations
