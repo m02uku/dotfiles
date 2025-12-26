@@ -6,6 +6,7 @@
     
     enableCompletion = true;
     autosuggestion.enable = true;
+    historySubstringSearch.enable = true;
     syntaxHighlighting.enable = true;
     
     history = {
@@ -13,19 +14,24 @@
       path = "${config.home.homeDirectory}/.zsh_history";
     };
     
-    shellAliases = {
-      hms = "home-manager switch --flake ~/dotfiles";
-      hmu = "cd ~/dotfiles && nix flake update && home-manager switch --flake ~/dotfiles";
-      ll = "ls -lah";
-      ".." = "cd ..";
+    zsh-abbr = {
+      enable = true;
+      abbreviations = {
+        hms = "home-manager switch --flake ~/dotfiles";
+        hmu = "cd ~/dotfiles && nix flake update && home-manager switch --flake ~/dotfiles";
+        ll = "ls -lah";
+        vi = "nvim";
+        vim = "nvim";
+      };
     };
-    
-    initContent = ''
-      # Minimal shell initialization
-      setopt autocd
-      setopt hist_ignore_dups
-      setopt share_history
-    '';
+
+    defaultKeymap = "viins";
+
+    setOptions = [
+      "autocd"
+      "hist_ignore_dups"
+      "share_history"
+    ];
   };
 }
 
