@@ -14,6 +14,8 @@
     };
     
     shellAliases = {
+      hms = "home-manager switch --flake ~/dotfiles";
+      hmu = "cd ~/dotfiles && nix flake update && home-manager switch --flake ~/dotfiles";
       ll = "ls -lah";
       ".." = "cd ..";
     };

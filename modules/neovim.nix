@@ -32,6 +32,7 @@
       vim.opt.tabstop = 2
       vim.opt.smartindent = true
       vim.opt.termguicolors = true
+      vim.opt.mouse = 
       
       -- Color scheme
       vim.cmd([[colorscheme gruvbox]])
