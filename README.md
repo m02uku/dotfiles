@@ -34,17 +34,23 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 git clone https://github.com/m02uku/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-# Update username in flake.nix (replace "nixuser" with your actual username)
+# Edit flake.nix lines 22-23:
+# - username = "your-username-here"
+# - system = "your-system-here"  (x86_64-darwin, aarch64-darwin, or x86_64-linux)
 vim flake.nix
 
-# Install Home Manager standalone
-nix run home-manager/release-25.05 -- init --switch ~/dotfiles
+# Remove existing Home Manager directory if present
+rm -rf ~/Applications/Home\ Manager\ Apps  # macOS only
 
 # Apply configuration
-home-manager switch --flake ~/dotfiles
+nix run home-manager -- switch --flake ~/dotfiles
+
+# Verify installation
+nvim --version
+which zsh
 ```
 
-**Platform Detection**: The flake auto-detects your system. No manual system specification needed.
+**Note**: Configuration persists permanently across shell restarts and reboots. Changes only apply when you explicitly run `home-manager switch`.
 
 ## Daily Usage
 
