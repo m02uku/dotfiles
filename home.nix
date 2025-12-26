@@ -9,6 +9,16 @@
     ripgrep
     fd
     jq
+    eza
+    ghq
+    lazygit
+    cowsay
+    cmatrix
+    toilet
+    peco
+    zoxide
+    gh
+    fzf
   ];
 
   # Import modular configurations

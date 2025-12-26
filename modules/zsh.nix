@@ -19,9 +19,13 @@
       abbreviations = {
         hms = "home-manager switch --flake ~/dotfiles";
         hmu = "cd ~/dotfiles && nix flake update && home-manager switch --flake ~/dotfiles";
-        ll = "ls -lah";
+        ls = "eza --icons";
+        ll = "eza -lah --icons --git";
+        la = "eza -a --icons";
+        lt = "eza --tree --icons --git-ignore";
         vi = "nvim";
         vim = "nvim";
+        repo= "cd $(ghq list --full-path --exact | peco)";
       };
     };
 

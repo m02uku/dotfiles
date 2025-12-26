@@ -17,7 +17,7 @@ in
 
     settings = {
       # Appearance
-      background_opacity = "0.5";
+      background_opacity = "0.7";
       background_blur = "15";
 
       # Performance / behavior
