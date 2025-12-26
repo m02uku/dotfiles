@@ -52,7 +52,7 @@
         lg = "lazygit";
         
         # Repository navigation
-        repo = "cd $(ghq list --full-path | fzf)";
+        repo = "$(ghq list --full-path | fzf)";
         ghget = "ghq get";
         
         # Directory navigation
