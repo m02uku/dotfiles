@@ -1,1 +1,21 @@
+# Nix build results
 result
+result-*
+
+# Direnv cache
+.direnv/
+.envrc
+
+# Editor/IDE
+.vscode/
+. idea/
+*.swp
+*. swo
+*~
+
+# macOS
+.DS_Store
+
+# Temporary files
+*. tmp
+*.log
