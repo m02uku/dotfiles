@@ -76,7 +76,12 @@
               diagnosticMode = "workspace";
             };
           };
-          ruff.enable = true; # ruff_lsp から変更
+          ruff = {
+            enable = true;
+            settings = {
+              args = [ "--config" "~/.config/ruff/ruff.toml" ]; # Optional custom config path
+            };
+          };
           nixd.enable = true;
         };
       };
@@ -114,12 +119,13 @@
         };
       };
 
-      # Formatter (conform-nvim)
+      # Formatter (conform-nvim) - Enhanced for Python
       conform-nvim = {
         enable = true;
         settings = {
           formatters_by_ft = {
             nix = [ "nixpkgs_fmt" ];
+            python = [ "black" "isort" ]; # Added for Python
           };
           format_on_save = {
             timeout_ms = 500;
