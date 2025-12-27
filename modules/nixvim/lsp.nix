@@ -1,25 +1,31 @@
 { config, pkgs, ... }:
 
 {
-  programs.nixvim.plugins.lsp = {
-    enable = true;
-    inlayHints = true;
-    servers = {
-      pyright = {
-        enable = true;
-        settings.python.analysis = {
-          autoSearchPaths = true;
-          useLibraryCodeForTypes = true;
-          diagnosticMode = "workspace";
+  programs.nixvim.plugins = {
+    lsp = {
+      enable = true;
+      servers = {
+        pyright = {
+          enable = true;
+          settings.python.analysis = {
+            autoSearchPaths = true;
+            useLibraryCodeForTypes = true;
+            diagnosticMode = "workspace";
+          };
         };
+        ruff.enable = true;
+        nixd.enable = true;
       };
-      ruff = {
-        enable = true;
-        settings = {
-          args = [ "--config" "~/.config/ruff/ruff.toml" ]; # Optional custom config path
-        };
-      };
-      nixd.enable = true;
+      inlayHints = true;
     };
+    mason = {
+      enable = true;
+      settings.ui.border = "rounded";
+    };
+    mason-lspconfig.enable = true;
+    mason-nvim-dap.enable = true;
+    dap.enable = true;
+    dap-ui.enable = true;
+    dap-go.enable = true;
   };
 }

@@ -70,7 +70,9 @@
   };
 
   imports = [
+    ./nixvim/completion.nix
     ./nixvim/lsp.nix
+    ./nixvim/ui.nix
     ./nixvim/plugins.nix
   ];
 }

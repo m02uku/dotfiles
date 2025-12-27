@@ -41,6 +41,7 @@
     cowsay
     cmatrix
     toilet
+    figlet
 
     # === クラウド CLI ===
     awscli2
