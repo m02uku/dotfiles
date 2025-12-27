@@ -185,6 +185,15 @@
         # GPU モニタリング
         gpuwatch = "watch -n 1 nvidia-smi";
         gpumem = "nvidia-smi --query-gpu=memory.used,memory.total --format=csv";
+
+        # === GPG (追加) ===
+        ggen = "gpg --gen-key"; # GPG鍵生成
+        gls = "gpg --list-keys"; # 鍵リスト表示
+        gexp = "gpg --armor --export"; # 公開鍵エクスポート
+        gimp = "gpg --import"; # 鍵インポート
+        gon = "git config commit.gpgSign true"; # コミット自動署名有効
+        goff = "git config --global --unset commit.gpgSign"; # 自動署名無効
+        gset = "git config --global user.signingkey"; # 署名鍵設定
       };
     };
 
