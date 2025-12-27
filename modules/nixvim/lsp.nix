@@ -2,6 +2,12 @@
 
 {
   programs.nixvim.plugins = {
+    cmp = {
+      enable = true;
+      settings = {
+        preselect = "none";
+      };
+    };
     lsp = {
       enable = true;
       servers = {
@@ -17,6 +23,17 @@
         nixd.enable = true;
       };
       inlayHints = true;
+      settings = {
+        hover = {
+          border = "rounded";
+        };
+        signatureHelp = {
+          border = "rounded";
+        };
+        diagnostics = {
+          virtual_text = true;
+        };
+      };
     };
     mason = {
       enable = true;
