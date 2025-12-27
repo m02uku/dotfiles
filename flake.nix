@@ -7,39 +7,42 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, nixvim, ... }:
     let
-      # CHANGE THESE TWO VALUES:
-      username = "soranagano";  # Your username
-      system = "x86_64-darwin";  # x86_64-darwin, aarch64-darwin, or x86_64-linux
-      
-      mkHomeConfiguration = system: username:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          
-          isDarwin = pkgs.stdenv.isDarwin;
-          homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          
-          modules = [
-            ./home.nix
-            {
-              home = {
-                inherit username homeDirectory;
-                stateVersion = "25.05";
-              };
-            }
-          ];
-        };
+      # 設定値
+      username = "soranagano";
+      system = "x86_64-darwin";
+
+      # pkgs の定義
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      # プラットフォーム判定
+      isDarwin = pkgs.stdenv.isDarwin;
+      homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
     in
     {
-      homeConfigurations.${username} = mkHomeConfiguration system username;
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          ./home.nix
+          nixvim.homeModules.nixvim
+          {
+            home = {
+              inherit username homeDirectory;
+              stateVersion = "25.11";
+            };
+          }
+        ];
+      };
     };
 }

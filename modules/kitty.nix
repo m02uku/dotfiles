@@ -1,9 +1,11 @@
 { config, pkgs, ... }:
 
 let
-  draculaTheme = builtins.fetchGit {
-    url = "https://github.com/dracula/kitty/";
+  draculaTheme = pkgs.fetchFromGitHub {
+    owner = "dracula";
+    repo = "kitty";
     rev = "87717a3f00e3dff0fc10c93f5ff535ea4092de70";
+    hash = "sha256-78PTH9wE6ktuxeIxrPp0ZgRI8ST+eZ3Ok2vW6BCIZkc=";
   };
 in
 {
