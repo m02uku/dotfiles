@@ -1,13 +1,9 @@
 # Dev shells are now organized in modules/devshells/
-# This file imports all dev shell definitions
+# Import-tree automatically imports all .nix files in subdirectories
+# No explicit imports needed - import-tree handles this!
 
 { ... }:
 {
-  # Import all dev shell modules
-  imports = [
-    ./devshells/python.nix
-    ./devshells/slidev.nix
-    ./devshells/quarto.nix
-    ./devshells/typst.nix
-  ];
+  # All devshells in modules/devshells/ are automatically imported by import-tree
+  # No manual imports required!
 }
