@@ -31,6 +31,7 @@ git clone <your-repo> ~/nix_env && cd ~/nix_env && ./activate.sh
 <td width="50%">
 
 ### 😫 Without Nix
+
 ```
 brew install ...
 apt install ...
@@ -42,6 +43,7 @@ pip install ...
 <td width="50%">
 
 ### 😎 With This Setup
+
 ```bash
 ./activate.sh
 # Done. Same on Mac, Linux, anywhere.
@@ -55,13 +57,13 @@ pip install ...
 
 ## ✨ Features
 
-| | Feature | What it means |
-|:--:|:--|:--|
-| 🔄 | **Portable** | Mac (Intel/M1) + Ubuntu |
-| 🌳 | **Dendritic** | Auto-import via `import-tree` |
-| 🧩 | **Modular** | 1 file = 1 feature |
-| ✅ | **Pure** | No `--impure` needed |
-| 📦 | **Project Envs** | direnv auto-activates |
+|     | Feature          | What it means                 |
+| :-: | :--------------- | :---------------------------- |
+| 🔄  | **Portable**     | Mac (Intel/M1) + Ubuntu       |
+| 🌳  | **Dendritic**    | Auto-import via `import-tree` |
+| 🧩  | **Modular**      | 1 file = 1 feature            |
+| ✅  | **Pure**         | No `--impure` needed          |
+| 📦  | **Project Envs** | direnv auto-activates         |
 
 ---
 
@@ -113,23 +115,23 @@ pip install ...
 
 ### 🌐 Browser
 
-| | Firefox with Privacy |
-|:--|:--|
-| 🛡️ **Extensions** | uBlock Origin, Vimium C |
-| 🔒 **Privacy** | Telemetry off, Tracking Protection, Fingerprint Resistance |
-| 🔍 **Search** | Google + custom (`@np` Nix Packages, `@gh` GitHub) |
-| 📑 **Bookmarks** | Declarative management |
+|                   | Firefox with Privacy                                       |
+| :---------------- | :--------------------------------------------------------- |
+| 🛡️ **Extensions** | uBlock Origin, Vimium C                                    |
+| 🔒 **Privacy**    | Telemetry off, Tracking Protection, Fingerprint Resistance |
+| 🔍 **Search**     | Google + custom (`@np` Nix Packages, `@gh` GitHub)         |
+| 📑 **Bookmarks**  | Declarative management                                     |
 
 ### 💻 CLI
 
-| Category | Tools |
-|:--|:--|
-| 🔀 **Git** | `git` `gh` `ghq` `lazygit` `delta` |
-| 🔍 **Search** | `ripgrep` `fd` `fzf` `zoxide` |
-| 📊 **System** | `btop` `dust` `duf` |
-| 🛠️ **Utils** | `eza` `bat` `jq` `xh` `tldr` `trash-cli` `entr` |
-| ❄️ **Nix** | `comma` `nix-index` |
-| 🐚 **Shell** | `zsh` `starship` |
+| Category      | Tools                                           |
+| :------------ | :---------------------------------------------- |
+| 🔀 **Git**    | `git` `gh` `ghq` `lazygit` `delta`              |
+| 🔍 **Search** | `ripgrep` `fd` `fzf` `zoxide`                   |
+| 📊 **System** | `btop` `dust` `duf`                             |
+| 🛠️ **Utils**  | `eza` `bat` `jq` `xh` `tldr` `trash-cli` `entr` |
+| ❄️ **Nix**    | `comma` `nix-index`                             |
+| 🐚 **Shell**  | `zsh` `starship`                                |
 
 ### ✏️ Neovim
 
@@ -138,36 +140,36 @@ pip install ...
 <table>
 <tr><td>
 
-| Layer | Plugins |
-|:--|:--|
-| 🧠 **LSP** | pyright, nil_ls, marksman |
+| Layer             | Plugins                      |
+| :---------------- | :--------------------------- |
+| 🧠 **LSP**        | pyright, nil_ls, marksman    |
 | ⚡ **Completion** | **blink.cmp** (Rust-powered) |
-| 🔧 **Lint** | ruff, statix, markdownlint |
-| 🎨 **Format** | ruff, nixfmt, prettier |
+| 🔧 **Lint**       | ruff, statix, markdownlint   |
+| 🎨 **Format**     | ruff, nixfmt, prettier       |
 
 </td><td>
 
-| Layer | Plugins |
-|:--|:--|
-| 🎯 **Navigation** | snacks.picker, flash.nvim |
-| 📁 **Files** | oil.nvim |
-| 🎨 **Theme** | tokyonight |
-| ✨ **UI** | lualine, snacks, mini.nvim |
+| Layer             | Plugins                    |
+| :---------------- | :------------------------- |
+| 🎯 **Navigation** | snacks.picker, flash.nvim  |
+| 📁 **Files**      | oil.nvim                   |
+| 🎨 **Theme**      | tokyonight                 |
+| ✨ **UI**         | lualine, snacks, mini.nvim |
 
 </td></tr>
 </table>
 
 #### ⌨️ Key Bindings
 
-| Key | Action |
-|:--|:--|
-| `Space` | Leader |
-| `gd` / `gr` | Go to definition / references |
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>gg` | Lazygit |
-| `s` / `S` | Flash jump |
-| `-` | Oil file manager |
+| Key          | Action                        |
+| :----------- | :---------------------------- |
+| `Space`      | Leader                        |
+| `gd` / `gr`  | Go to definition / references |
+| `<leader>ff` | Find files                    |
+| `<leader>fg` | Live grep                     |
+| `<leader>gg` | Lazygit                       |
+| `s` / `S`    | Flash jump                    |
+| `-`          | Oil file manager              |
 
 ---
 
@@ -198,7 +200,7 @@ nix develop .#typst     # 📝 Typst + tinymist
   outputs = { nixpkgs, ... }:
   let
     systems = [ "x86_64-darwin" "aarch64-darwin" "x86_64-linux" ];
-    forAllSystems = f: nixpkgs.lib.genAttrs systems 
+    forAllSystems = f: nixpkgs.lib.genAttrs systems
       (s: f nixpkgs.legacyPackages.${s});
   in {
     devShells = forAllSystems (pkgs: {
@@ -232,6 +234,68 @@ direnv allow
 
 ---
 
+## 🎨 Customize Your Setup
+
+> **Want to change something? Here's where to look:**
+
+<table>
+<tr>
+<td width="50%">
+
+### 🌐 Browser
+
+| Change | File |
+|:--|:--|
+| Add extensions | `browser/extensions.nix` |
+| Add search engines | `browser/search.nix` |
+| Edit bookmarks | `browser/bookmarks.nix` |
+| Tweak privacy | `browser/privacy.nix` |
+
+</td>
+<td width="50%">
+
+### ✏️ Neovim
+
+| Change | File |
+|:--|:--|
+| Keybindings | `editor/keymaps.nix` |
+| LSP/Completion | `editor/lsp.nix` |
+| Theme/UI | `editor/ui.nix` |
+| Plugins | `editor/editing.nix` |
+
+</td>
+</tr>
+<tr>
+<td>
+
+### 💻 CLI Tools
+
+| Change | File |
+|:--|:--|
+| Git config | `cli/git.nix` |
+| Shell (zsh) | `cli/shell.nix` |
+| Add packages | `cli/packages.nix` |
+| Aliases | `cli/shell.nix` |
+
+</td>
+<td>
+
+### 🖥️ Terminal
+
+| Change | File |
+|:--|:--|
+| WezTerm config | `terminal/wezterm.nix` |
+| Fonts | `terminal/fonts.nix` |
+| SSH config | `terminal/ssh.nix` |
+
+</td>
+</tr>
+</table>
+
+> 📁 All files are in `modules/home/`
+
+---
+
 ## ➕ Adding New Features
 
 > **Just add a file. That's it.**
@@ -254,12 +318,12 @@ EOF
 
 ## 🛠️ Common Commands
 
-| Task | Command |
-|:--|:--|
-| 🔄 Apply changes | `./activate.sh` |
-| 📦 Update packages | `nix flake update && ./activate.sh` |
-| 🆕 New machine | `git clone ... && ./activate.sh` |
-| 👤 Add new user | Edit `modules/core/home.nix` user list |
+| Task               | Command                                |
+| :----------------- | :------------------------------------- |
+| 🔄 Apply changes   | `./activate.sh`                        |
+| 📦 Update packages | `nix flake update && ./activate.sh`    |
+| 🆕 New machine     | `git clone ... && ./activate.sh`       |
+| 👤 Add new user    | Edit `modules/core/home.nix` user list |
 
 ---
 
@@ -267,13 +331,11 @@ EOF
 
 <div align="center">
 
-| | System | Status |
-|:--:|:--|:--:|
-| 🍎 | macOS Intel | ✅ |
-| 🍎 | macOS Apple Silicon | ✅ |
-| 🐧 | Ubuntu/Linux x86 | ✅ |
-| 🐧 | Ubuntu/Linux ARM | ✅ |
+|     | System              | Status |
+| :-: | :------------------ | :----: |
+| 🍎  | macOS Intel         |   ✅   |
+| 🍎  | macOS Apple Silicon |   ✅   |
+| 🐧  | Ubuntu/Linux x86    |   ✅   |
+| 🐧  | Ubuntu/Linux ARM    |   ✅   |
 
 </div>
-
-
