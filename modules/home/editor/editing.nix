@@ -21,7 +21,10 @@
         enable = true;
         mockDevIcons = true;
         modules = {
+          # UI
           icons = { };
+
+          # Editing
           surround = { };
           pairs = { };
           comment = { };
@@ -29,6 +32,20 @@
           splitjoin = { };
           move = { };
           ai = { };
+
+          # Dashboard (start screen)
+          starter = { };
+        };
+      };
+
+      plugins.snacks = {
+        enable = true;
+        settings = {
+          # Features
+          picker.enabled = true;
+          lazygit.enabled = true;
+          terminal.enabled = true;
+          git.enabled = true;
         };
       };
 

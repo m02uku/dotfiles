@@ -139,24 +139,24 @@ pip install ...
 
 ### 💻 CLI
 
-| Category         | Tools                                           |
-| :--------------- | :---------------------------------------------- |
-| 🔀 **Git**       | `git` `gh` `ghq` `lazygit` `delta`              |
-| 🔍 **Search**    | `ripgrep` `fd` `fzf` `zoxide`                   |
-| 📊 **System**    | `btop` `dust` `duf`                             |
-| 🛠️ **Utils**     | `eza` `bat` `jq` `xh` `tldr` `trash-cli` `entr` |
-| ❄️ **Nix**       | `comma` `nix-index`                             |
-| 🐚 **Shell**     | `zsh` `starship`                                |
-| 🐳 **Containers**| `colima` `docker`                               |
+| Category          | Tools                                           |
+| :---------------- | :---------------------------------------------- |
+| 🔀 **Git**        | `git` `gh` `ghq` `lazygit` `delta`              |
+| 🔍 **Search**     | `ripgrep` `fd` `fzf` `zoxide`                   |
+| 📊 **System**     | `btop` `dust` `duf`                             |
+| 🛠️ **Utils**      | `eza` `bat` `jq` `xh` `tldr` `trash-cli` `entr` |
+| ❄️ **Nix**        | `comma` `nix-index`                             |
+| 🐚 **Shell**      | `zsh` `starship`                                |
+| 🐳 **Containers** | `colima` `docker`                               |
 
 ### 📱 Apps
 
-| Category            | Apps                                         |
-| :------------------ | :------------------------------------------- |
-| 💬 **Communication**| Discord, Slack, Zoom                         |
-| 📝 **Productivity** | Obsidian                                     |
-| 🌐 **Browser**      | Firefox (with privacy hardening)             |
-| 💻 **Terminal**     | WezTerm                                      |
+| Category             | Apps                             |
+| :------------------- | :------------------------------- |
+| 💬 **Communication** | Discord, Slack, Zoom             |
+| 📝 **Productivity**  | Obsidian                         |
+| 🌐 **Browser**       | Firefox (with privacy hardening) |
+| 💻 **Terminal**      | WezTerm                          |
 
 ### ✏️ Neovim
 

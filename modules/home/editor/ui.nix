@@ -22,7 +22,6 @@
         enable = true;
         settings = {
           # UI
-          dashboard.enabled = true;
           notifier.enabled = true;
           statuscolumn.enabled = true;
           indent.enabled = true;
@@ -32,12 +31,6 @@
           bigfile.enabled = true;
           quickfile.enabled = true;
           words.enabled = true;
-
-          # Features
-          picker.enabled = true;
-          lazygit.enabled = true;
-          terminal.enabled = true;
-          git.enabled = true;
         };
       };
     };
