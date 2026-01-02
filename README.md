@@ -73,12 +73,20 @@ pip install ...
 ├── 🚀 activate.sh        # One-command setup
 │
 ├── 📂 modules/
-│   ├── systems.nix       # x86/ARM × Mac/Linux
-│   ├── home.nix          # Assembler
-│   ├── devshells.nix     # Global dev envs
+│   ├── core/
+│   │   ├── systems.nix   # x86/ARM × Mac/Linux
+│   │   ├── home.nix      # Assembler
+│   │   └── devshells.nix # Global dev envs
 │   │
 │   └── 📂 home/
 │       ├── base.nix
+│       │
+│       ├── 📂 browser/       # 🌐 Browser
+│       │   ├── firefox.nix   #    Enable & profile
+│       │   ├── extensions.nix#    uBlock Origin, Vimium C
+│       │   ├── search.nix    #    Search engines
+│       │   ├── bookmarks.nix #    Declarative bookmarks
+│       │   └── privacy.nix   #    Privacy hardening
 │       │
 │       ├── 📂 cli/           # 🔧 Command Line
 │       │   ├── git.nix       #    git, gh, ghq, lazygit
@@ -102,6 +110,15 @@ pip install ...
 ---
 
 ## 🛠️ Included Tools
+
+### 🌐 Browser
+
+| | Firefox with Privacy |
+|:--|:--|
+| 🛡️ **Extensions** | uBlock Origin, Vimium C |
+| 🔒 **Privacy** | Telemetry off, Tracking Protection, Fingerprint Resistance |
+| 🔍 **Search** | Google + custom (`@np` Nix Packages, `@gh` GitHub) |
+| 📑 **Bookmarks** | Declarative management |
 
 ### 💻 CLI
 
@@ -242,6 +259,7 @@ EOF
 | 🔄 Apply changes | `./activate.sh` |
 | 📦 Update packages | `nix flake update && ./activate.sh` |
 | 🆕 New machine | `git clone ... && ./activate.sh` |
+| 👤 Add new user | Edit `modules/core/home.nix` user list |
 
 ---
 
