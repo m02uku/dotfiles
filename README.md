@@ -17,7 +17,7 @@
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-git clone <your-repo> ~/nix_env && cd ~/nix_env && ./activate.sh
+git clone git@github.com:m02uku/dotfiles.git ~/nix_env && cd ~/nix_env && ./activate.sh
 ```
 
 **That's it.** Your entire dev environment is ready. ✨
@@ -350,12 +350,12 @@ EOF
 
 ## 🛠️ Common Commands
 
-| Task               | Command                                |
-| :----------------- | :------------------------------------- |
-| 🔄 Apply changes   | `./activate.sh`                        |
-| 📦 Update packages | `nix flake update && ./activate.sh`    |
-| 🆕 New machine     | `git clone ... && ./activate.sh`       |
-| 👤 Add new user    | Edit `modules/core/home.nix` user list |
+| Task               | Command                                                            |
+| :----------------- | :----------------------------------------------------------------- |
+| 🔄 Apply changes   | `./activate.sh`                                                    |
+| 📦 Update packages | `nix flake update && ./activate.sh`                                |
+| 🆕 New machine     | `git clone git@github.com:m02uku/dotfiles.git ~/nix_env && ./activate.sh` |
+| 👤 Add new user    | Edit `modules/core/home.nix` user list                             |
 
 ---
 
