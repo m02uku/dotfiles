@@ -17,19 +17,34 @@
         };
       };
 
+      plugins.mini = {
+        enable = true;
+        mockDevIcons = true;
+        modules = {
+          icons = { };
+          starter = {
+            header = ''
+                            ______   ______           __
+                            /      \ /      \         |  \
+              ______ ____ |  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\__    __| ▓▓   __ __    __
+              |      \    \| ▓▓▓\| ▓▓\▓▓__| ▓▓  \  |  \ ▓▓  /  \  \  |  \
+              | ▓▓▓▓▓▓\▓▓▓▓\ ▓▓▓▓\ ▓▓/      ▓▓ ▓▓  | ▓▓ ▓▓_/  ▓▓ ▓▓  | ▓▓
+              | ▓▓ | ▓▓ | ▓▓ ▓▓\▓▓\▓▓  ▓▓▓▓▓▓| ▓▓  | ▓▓ ▓▓   ▓▓| ▓▓  | ▓▓
+              | ▓▓ | ▓▓ | ▓▓ ▓▓_\▓▓▓▓ ▓▓_____| ▓▓__/ ▓▓ ▓▓▓▓▓▓\| ▓▓__/ ▓▓
+              | ▓▓ | ▓▓ | ▓▓\▓▓  \▓▓▓ ▓▓     \\▓▓    ▓▓ ▓▓  \▓▓\\▓▓    ▓▓
+              \▓▓  \▓▓  \▓▓ \▓▓▓▓▓▓ \▓▓▓▓▓▓▓▓ \▓▓▓▓▓▓ \▓▓   \▓▓ \▓▓▓▓▓▓
+            '';
+          };
+        };
+      };
+
       plugins.snacks = {
         enable = true;
         settings = {
-          # UI
           notifier.enabled = true;
           statuscolumn.enabled = true;
           indent.enabled = true;
           scroll.enabled = true;
-
-          # Performance
-          bigfile.enabled = true;
-          quickfile.enabled = true;
-          words.enabled = true;
         };
       };
     };

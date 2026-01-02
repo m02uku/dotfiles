@@ -7,10 +7,10 @@
         settings.ensure_installed = [ "python" "nix" "markdown" "lua" "vim" "vimdoc" ];
       };
 
-      plugins.flash = {
-        enable = true;
-        settings.modes.search.enabled = true;
-      };
+      # plugins.flash = {
+      #   enable = true;
+      #   settings.modes.search.enabled = true;
+      # };
 
       plugins.oil = {
         enable = true;
@@ -29,12 +29,7 @@
 
       plugins.mini = {
         enable = true;
-        mockDevIcons = true;
         modules = {
-          # UI
-          icons = { };
-
-          # Editing
           surround = { };
           pairs = { };
           comment = { };
@@ -42,16 +37,15 @@
           splitjoin = { };
           move = { };
           ai = { };
-
-          # Dashboard (start screen)
-          starter = { };
         };
       };
 
       plugins.snacks = {
         enable = true;
         settings = {
-          # Features
+          bigfile.enabled = true;
+          quickfile.enabled = true;
+          words.enabled = true;
           picker.enabled = true;
           lazygit.enabled = true;
           terminal.enabled = true;
