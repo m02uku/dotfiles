@@ -76,10 +76,6 @@
         settings.auto_close = true;
       };
 
-      plugins.codeium-vim = {
-        enable = true;
-      };
-
     };
   };
 }
