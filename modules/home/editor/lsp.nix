@@ -1,7 +1,20 @@
 { ... }:
 {
   # LSP, Completion, Lint, Format, Diagnostics
-  flake.modules.homeManager.neovim-lsp = {
+  flake.modules.homeManager.neovim-lsp = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      # LSP servers
+      pyright
+      nil
+      marksman
+      # Linters and formatters
+      ruff
+      statix
+      markdownlint-cli
+      nixfmt
+      nodePackages.prettier
+    ];
+
     programs.nixvim = {
       plugins.lsp = {
         enable = true;
