@@ -80,7 +80,13 @@ pip install ...
 │   │   ├── systems.nix   # x86/ARM × Mac/Linux
 │   │   └── home.nix      # Assembler
 │   │
-│   ├── devshells.nix     # Global dev envs
+│   ├── devshells.nix # Global dev envs
+│   │
+│   ├── 📂 devshells/     # 🐚 Development Shells
+│   │   ├── python.nix    #    Python 3.13 + ruff
+│   │   ├── slidev.nix    #    Node.js + pnpm
+│   │   ├── quarto.nix    #    Quarto + Jupyter
+│   │   └── typst.nix     #    Typst + tinymist
 │   │
 │   └── 📂 home/
 │       ├── base.nix
