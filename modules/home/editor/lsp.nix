@@ -48,6 +48,10 @@
         enable = true;
         settings.auto_close = true;
       };
+
+      diagnostics = {
+        virtual_text = true;
+      };
     };
   };
 }
