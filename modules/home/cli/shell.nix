@@ -40,8 +40,9 @@
         lg = "lazygit";
 
         # Editor
-        vim = "nvim";
         v = "nvim";
+        vi = "nvim";
+        vim = "nvim";
 
         # Navigation
         "." = "cd ..";

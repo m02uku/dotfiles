@@ -10,10 +10,11 @@
           nil_ls.enable = true;
           marksman.enable = true;
         };
+      };
+
+      diagnostic = {
         settings = {
-          diagnostics = {
-            virtual_text = true;
-          };
+          virtual_text = true;
         };
       };
 
