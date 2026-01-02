@@ -244,24 +244,24 @@ direnv allow
 
 ### 🌐 Browser
 
-| Change | File |
-|:--|:--|
-| Add extensions | `browser/extensions.nix` |
-| Add search engines | `browser/search.nix` |
-| Edit bookmarks | `browser/bookmarks.nix` |
-| Tweak privacy | `browser/privacy.nix` |
+| Change             | File                     |
+| :----------------- | :----------------------- |
+| Add extensions     | `browser/extensions.nix` |
+| Add search engines | `browser/search.nix`     |
+| Edit bookmarks     | `browser/bookmarks.nix`  |
+| Tweak privacy      | `browser/privacy.nix`    |
 
 </td>
 <td width="50%">
 
 ### ✏️ Neovim
 
-| Change | File |
-|:--|:--|
-| Keybindings | `editor/keymaps.nix` |
-| LSP/Completion | `editor/lsp.nix` |
-| Theme/UI | `editor/ui.nix` |
-| Plugins | `editor/editing.nix` |
+| Change         | File                 |
+| :------------- | :------------------- |
+| Keybindings    | `editor/keymaps.nix` |
+| LSP/Completion | `editor/lsp.nix`     |
+| Theme/UI       | `editor/ui.nix`      |
+| Plugins        | `editor/editing.nix` |
 
 </td>
 </tr>
@@ -270,23 +270,23 @@ direnv allow
 
 ### 💻 CLI Tools
 
-| Change | File |
-|:--|:--|
-| Git config | `cli/git.nix` |
-| Shell (zsh) | `cli/shell.nix` |
+| Change       | File               |
+| :----------- | :----------------- |
+| Git config   | `cli/git.nix`      |
+| Shell (zsh)  | `cli/shell.nix`    |
 | Add packages | `cli/packages.nix` |
-| Aliases | `cli/shell.nix` |
+| Aliases      | `cli/shell.nix`    |
 
 </td>
 <td>
 
 ### 🖥️ Terminal
 
-| Change | File |
-|:--|:--|
+| Change         | File                   |
+| :------------- | :--------------------- |
 | WezTerm config | `terminal/wezterm.nix` |
-| Fonts | `terminal/fonts.nix` |
-| SSH config | `terminal/ssh.nix` |
+| Fonts          | `terminal/fonts.nix`   |
+| SSH config     | `terminal/ssh.nix`     |
 
 </td>
 </tr>
