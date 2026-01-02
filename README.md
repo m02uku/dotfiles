@@ -95,15 +95,30 @@ pip install ...
 │       │   ├── search.nix    #    ripgrep, fd, fzf
 │       │   ├── shell.nix     #    zsh, zoxide, starship
 │       │   ├── utils.nix     #    eza, bat, btop, dust...
-│       │   └── nix-tools.nix #    comma, nix-index
+│       │   ├── nix-tools.nix #    comma, nix-index
+│       │   └── containers.nix#    colima, docker
 │       │
-│       └── 📂 editor/        # ✏️ Neovim (NixVim)
-│           ├── neovim.nix    #    Core settings
-│           ├── keymaps.nix   #    All keybindings
-│           ├── lsp.nix       #    LSP, completion, lint
-│           ├── ui.nix        #    Theme, statusline
-│           ├── git.nix       #    Gitsigns
-│           └── editing.nix   #    Treesitter, mini, etc.
+│       ├── 📂 editor/        # ✏️ Neovim (NixVim)
+│       │   ├── neovim.nix    #    Core settings
+│       │   ├── keymaps.nix   #    All keybindings
+│       │   ├── lsp.nix       #    LSP, completion, lint
+│       │   ├── ui.nix        #    Theme, statusline
+│       │   ├── git.nix       #    Gitsigns
+│       │   └── editing.nix   #    Treesitter, mini, etc.
+│       │
+│       ├── 📂 terminal/      # 💻 Terminal Environment
+│       │   ├── wezterm.nix   #    WezTerm config
+│       │   ├── fonts.nix     #    Nerd Fonts
+│       │   ├── zellij.nix    #    Terminal multiplexer
+│       │   └── ssh.nix       #    SSH config
+│       │
+│       ├── 📂 communication/ # 💬 Communication Apps
+│       │   ├── discord.nix   #    Discord
+│       │   ├── slack.nix     #    Slack
+│       │   └── zoom.nix      #    Zoom
+│       │
+│       └── 📂 productivity/  # 📝 Productivity
+│           └── obsidian.nix  #    Note-taking
 │
 └── 📂 templates/
     └── python-ml/        # Project templates
@@ -124,14 +139,24 @@ pip install ...
 
 ### 💻 CLI
 
-| Category      | Tools                                           |
-| :------------ | :---------------------------------------------- |
-| 🔀 **Git**    | `git` `gh` `ghq` `lazygit` `delta`              |
-| 🔍 **Search** | `ripgrep` `fd` `fzf` `zoxide`                   |
-| 📊 **System** | `btop` `dust` `duf`                             |
-| 🛠️ **Utils**  | `eza` `bat` `jq` `xh` `tldr` `trash-cli` `entr` |
-| ❄️ **Nix**    | `comma` `nix-index`                             |
-| 🐚 **Shell**  | `zsh` `starship`                                |
+| Category         | Tools                                           |
+| :--------------- | :---------------------------------------------- |
+| 🔀 **Git**       | `git` `gh` `ghq` `lazygit` `delta`              |
+| 🔍 **Search**    | `ripgrep` `fd` `fzf` `zoxide`                   |
+| 📊 **System**    | `btop` `dust` `duf`                             |
+| 🛠️ **Utils**     | `eza` `bat` `jq` `xh` `tldr` `trash-cli` `entr` |
+| ❄️ **Nix**       | `comma` `nix-index`                             |
+| 🐚 **Shell**     | `zsh` `starship`                                |
+| 🐳 **Containers**| `colima` `docker`                               |
+
+### 📱 Apps
+
+| Category            | Apps                                         |
+| :------------------ | :------------------------------------------- |
+| 💬 **Communication**| Discord, Slack, Zoom                         |
+| 📝 **Productivity** | Obsidian                                     |
+| 🌐 **Browser**      | Firefox (with privacy hardening)             |
+| 💻 **Terminal**     | WezTerm                                      |
 
 ### ✏️ Neovim
 

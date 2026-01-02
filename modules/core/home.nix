@@ -3,8 +3,13 @@ let
   hmModules = builtins.attrValues config.flake.modules.homeManager;
 
   # ユーザー設定を作成する関数
-  mkHomeConfig = { pkgs, system, userName }:
+  mkHomeConfig = { system, userName }:
     let
+      # unfreeパッケージを許可したnixpkgs
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
       nurPkgs = import inputs.nixpkgs {
         inherit system;
         overlays = [ inputs.nur.overlays.default ];
@@ -24,13 +29,13 @@ let
     };
 in
 {
-  perSystem = { pkgs, system, ... }: {
+  perSystem = { system, ... }: {
     # 任意のユーザー名でビルド可能
     # 使用例: nix build '.#homeConfigurations."your-username".activationPackage'
     legacyPackages.homeConfigurations = builtins.listToAttrs (
       map (userName: {
         name = userName;
-        value = mkHomeConfig { inherit pkgs system userName; };
+        value = mkHomeConfig { inherit system userName; };
       }) [
         # ここにユーザー名を追加（またはビルドコマンドで直接指定）
         "soranagano"
