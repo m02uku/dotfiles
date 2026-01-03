@@ -2,8 +2,6 @@
 
 # Portable Nix Dev Environment
 
-*One command. Any machine. Same setup.*
-
 </div>
 
 ---
@@ -23,16 +21,16 @@ cd ~/nix_env && ./activate.sh
 
 ## What Each Directory Does
 
-| Directory              | Purpose                                                    |
-| :--------------------- | :--------------------------------------------------------- |
+| Directory              | Purpose                                                   |
+| :--------------------- | :-------------------------------------------------------- |
 | `modules/devshells/`   | Language support - See available devshells here           |
 | `modules/home/editor/` | Neovim LSP config - Language servers, linters, formatters |
 | `modules/home/`        | All other configs - Browser, CLI, terminal, apps          |
 
 **Want to add a new language?**
 
-- Devshell: Check `modules/devshells/` for examples
-- LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
+-   Devshell: Check `modules/devshells/` for examples
+-   LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
 
 ---
 
@@ -78,8 +76,8 @@ direnv allow
 
 <div align="center">
 
-|     | System              | Status |
-| :-: | :------------------ | :----: |
+|       | System              | Status |
+| :---: | :------------------ | :----: |
 | macOS | macOS Intel         |   ✅   |
 | macOS | macOS Apple Silicon |   ✅   |
 | Linux | Ubuntu/Linux x86    |   ✅   |
