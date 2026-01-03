@@ -1,14 +1,20 @@
-{ ... }:
+{ inputs, ... }:
 {
-  perSystem = { pkgs, ... }: {
+  perSystem = { system, ... }: let
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+  in {
     devShells.python = pkgs.mkShell {
       packages = with pkgs; [
-        python313
-        python313Packages.pip
-        python313Packages.virtualenv
+        python313Packages.jupyter
+        uv
       ];
-      shell = "${pkgs.zsh}/bin/zsh";
-      shellHook = ''echo "🐍 Python $(python --version)"'';
+      shellHook = ''
+        if [ ! -d venv ]; then
+          uv venv venv
+        fi
+        source venv/bin/activate
+        uv pip install marimo
+      '';
     };
   };
 }
