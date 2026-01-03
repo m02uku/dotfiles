@@ -17,7 +17,11 @@
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-git clone git@github.com:m02uku/dotfiles.git ~/nix_env && cd ~/nix_env && ./activate.sh
+
+# Clone the repository (choose one of the following)
+git clone https://github.com/m02uku/dotfiles.git ~/nix_env && cd ~/nix_env && ./activate.sh
+# OR (if you have SSH keys configured)
+# git clone git@github.com:m02uku/dotfiles.git ~/nix_env && cd ~/nix_env && ./activate.sh
 ```
 
 **That's it.** Your entire dev environment is ready. ✨
