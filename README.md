@@ -56,14 +56,18 @@ nix develop .#python
 For project-specific environments that activate automatically:
 
 ```bash
-# In your project directory
-echo "use flake" > .envrc
+# Copy template to your project
+cp -r templates/python-ml ~/your-project
+cd ~/your-project
+
+# Edit flake.nix for your needs
+# Then activate
 direnv allow
 
-# Now environment activates automatically when you cd into the project!
+# Environment activates automatically when you cd into the project!
 ```
 
-**Tip:** Create `flake.nix` in your project for custom environments.
+**Tip:** Templates include ready-to-use `flake.nix` and `.envrc` files.
 
 ---
 
