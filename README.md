@@ -86,7 +86,8 @@ pip install ...
 │   │   ├── quarto.nix    #    Quarto + Jupyter
 │   │   ├── typst.nix     #    Typst + tinymist
 │   │   ├── nix.nix       #    Nix + nil LSP
-│   │   └── markdown.nix  #    Markdown + marksman LSP
+│   │   ├── markdown.nix  #    Markdown + marksman LSP
+│   │   └── haskell.nix   #    Haskell + HLS
 │   │
 │   └── 📂 home/
 │       ├── base.nix
@@ -176,10 +177,10 @@ pip install ...
 
 | Layer             | Plugins                      |
 | :---------------- | :--------------------------- |
-| 🧠 **LSP**        | pyright, nil_ls, marksman    |
-| ⚡ **Completion** | **blink.cmp** (Rust-powered) |
-| 🔧 **Lint**       | ruff, statix, markdownlint   |
-| 🎨 **Format**     | ruff, nixfmt, prettier       |
+| 🧠 **LSP**        | pyright, nil_ls, marksman, tinymist, volar, hls |
+| ⚡ **Completion** | **blink.cmp** (Rust-powered)                     |
+| 🔧 **Lint**       | ruff, statix, markdownlint, eslint, hlint       |
+| 🎨 **Format**     | ruff, nixfmt, prettier, typstyle, ormolu        |
 
 </td><td>
 
@@ -218,6 +219,7 @@ nix develop .#quarto    # 📖 Quarto + Jupyter + pyright LSP
 nix develop .#typst     # 📝 Typst + tinymist LSP + typstyle
 nix develop .#nix       # ❄️ Nix + nil LSP + statix + nixfmt
 nix develop .#markdown  # 📝 Markdown + marksman LSP + prettier
+nix develop .#haskell   # λ Haskell + HLS + hlint + ormolu
 ```
 
 ### 🚀 LSP-Enabled Development Workflow
@@ -257,6 +259,12 @@ nix develop .#markdown  # 📝 Markdown + marksman LSP + prettier
 1. `nix develop .#markdown` - Enter devshell with Markdown tools + marksman LSP
 2. `nvim file.md` - Open file with LSP support
 3. Auto format with prettier
+
+#### Haskell Development
+
+1. `nix develop .#haskell` - Enter devshell with Haskell + HLS
+2. `nvim file.hs` - Open file with LSP completion
+3. Auto lint/format with hlint + ormolu
 
 > **💡 Tip**: LSP features activate automatically when you open files in supported languages. No extra configuration needed!
 

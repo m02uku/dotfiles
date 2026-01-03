@@ -16,6 +16,10 @@
           marksman.enable = true;
           tinymist.enable = true;
           volar.enable = true;
+          hls = {
+            enable = true;
+            installGhc = false;
+          };
         };
       };
 
@@ -48,6 +52,7 @@
           javascript = [ "eslint" ];
           typescript = [ "eslint" ];
           vue = [ "eslint" ];
+          haskell = [ "hlint" ];
         };
       };
 
@@ -66,6 +71,7 @@
             javascript = [ "prettier" ];
             typescript = [ "prettier" ];
             vue = [ "prettier" ];
+            haskell = [ "ormolu" ];
           };
         };
       };
