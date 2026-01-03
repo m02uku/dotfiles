@@ -34,23 +34,15 @@ cd ~/nix_env && ./activate.sh
 
 ---
 
-## � Using Devshells
+## 🐚 Using Devshells
 
 Enter language-specific development environments:
 
 ```bash
-# Python development
+# Example: Python development
 nix develop .#python
 
-# Haskell development  
-nix develop .#haskell
-
-# Other languages
-nix develop .#markdown
-nix develop .#typst
-nix develop .#quarto
-nix develop .#slidev
-nix develop .#nix
+# Other languages: Check modules/devshells/ directory!
 ```
 
 **Tip:** LSP features activate automatically when you open files in supported languages.
