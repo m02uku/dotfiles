@@ -214,49 +214,47 @@ nix develop .#python    # 🐍 Python 3.13 + ruff + pyright LSP
 nix develop .#slidev    # 🎨 Node.js + pnpm + prettier + eslint
 nix develop .#quarto    # 📖 Quarto + Jupyter + pyright LSP
 nix develop .#typst     # 📝 Typst + tinymist LSP + typstyle
+nix develop .#nix       # ❄️ Nix + nil LSP + statix + nixfmt
+nix develop .#markdown  # 📝 Markdown + marksman LSP + prettier
 ```
 
 ### 🚀 LSP-Enabled Development Workflow
 
 #### Python Development
 
-```mermaid
-flowchart TD
-    A[Enter devshell<br/>nix develop .#python] --> B[Open Neovim<br/>nvim file.py]
-    B --> C[LSP Active<br/>pyright for completion]
-    C --> D[Lint & Format<br/>ruff on save]
-    D --> E[Code Intelligence<br/>Go to definition, hover, etc.]
-```
+1. `nix develop .#python` - Enter devshell with Python + pyright LSP
+2. `nvim file.py` - Open file with full LSP support
+3. Auto lint/format with ruff on save
 
 #### Typst Development
 
-```mermaid
-flowchart TD
-    A[Enter devshell<br/>nix develop .#typst] --> B[Open Neovim<br/>nvim file.typ]
-    B --> C[LSP Active<br/>tinymist for completion]
-    C --> D[Format<br/>typstyle on save]
-    D --> E[Live Preview<br/>tinymist features]
-```
+1. `nix develop .#typst` - Enter devshell with Typst + tinymist LSP
+2. `nvim file.typ` - Open file with LSP completion
+3. Auto format with typstyle on save
 
 #### JavaScript/TypeScript (Slidev)
 
-```mermaid
-flowchart TD
-    A[Enter devshell<br/>nix develop .#slidev] --> B[Open Neovim<br/>nvim file.js]
-    B --> C[LSP Active<br/>volar for Vue/JS/TS]
-    C --> D[Lint & Format<br/>eslint + prettier on save]
-    D --> E[Vue Support<br/>Component completion]
-```
+1. `nix develop .#slidev` - Enter devshell with Node.js + volar LSP
+2. `nvim file.js` - Open file with Vue/JS/TS LSP support
+3. Auto lint/format with eslint + prettier
 
 #### Quarto (Scientific Publishing)
 
-```mermaid
-flowchart TD
-    A[Enter devshell<br/>nix develop .#quarto] --> B[Open Neovim<br/>nvim file.qmd]
-    B --> C[Python LSP<br/>pyright for code blocks]
-    C --> D[Render<br/>quarto render file.qmd]
-    D --> E[Preview<br/>HTML/PDF output]
-```
+1. `nix develop .#quarto` - Enter devshell with Quarto + Python LSP
+2. `nvim file.qmd` - Open file with pyright for code blocks
+3. `quarto render file.qmd` - Render to HTML/PDF
+
+#### Nix Development
+
+1. `nix develop .#nix` - Enter devshell with Nix tools + nil LSP
+2. `nvim file.nix` - Open file with LSP completion
+3. Auto lint/format with statix + nixfmt
+
+#### Markdown Development
+
+1. `nix develop .#markdown` - Enter devshell with Markdown tools + marksman LSP
+2. `nvim file.md` - Open file with LSP support
+3. Auto format with prettier
 
 > **💡 Tip**: LSP features activate automatically when you open files in supported languages. No extra configuration needed!
 
@@ -310,7 +308,68 @@ direnv allow
 
 ---
 
-## 🎨 Customize Your Setup
+## 🚀 Adding New Languages
+
+> **Add LSP support for any language in 3 steps**
+
+### Step 1: Create Devshell
+
+Create `modules/devshells/yourlang.nix`:
+
+```nix
+{ ... }:
+{
+  perSystem = { pkgs, ... }: {
+    devShells.yourlang = pkgs.mkShell {
+      packages = with pkgs; [
+        # LSP server
+        your-lsp-server
+        # Linter & formatter
+        your-linter
+        your-formatter
+        # Language runtime
+        your-lang-runtime
+      ];
+      shell = "${pkgs.zsh}/bin/zsh";
+      shellHook = ''echo "🚀 YourLang development environment"'';
+    };
+  };
+}
+```
+
+### Step 2: Update Global LSP Config
+
+Edit `modules/home/editor/lsp.nix`:
+
+```nix
+# Add to servers
+servers = {
+  # ... existing servers
+  yourlang.enable = true;  # If supported by NixVim
+};
+
+# Add to lintersByFt
+lintersByFt = {
+  # ... existing
+  yourlang = [ "your-linter" ];
+};
+
+# Add to formatters_by_ft
+formatters_by_ft = {
+  # ... existing
+  yourlang = [ "your-formatter" ];
+};
+```
+
+### Step 3: Activate
+
+```bash
+./activate.sh
+```
+
+**Done!** 🎉 Your new language is ready with full LSP support.
+
+---
 
 > **Want to change something? Here's where to look:**
 
