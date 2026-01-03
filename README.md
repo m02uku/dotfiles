@@ -60,6 +60,9 @@ For project-specific environments that activate automatically:
 cp -r templates/python-ml ~/your-project
 cd ~/your-project
 
+# Create .envrc file
+echo "use flake" > .envrc
+
 # Edit flake.nix for your needs
 # Then activate
 direnv allow
@@ -67,7 +70,7 @@ direnv allow
 # Environment activates automatically when you cd into the project!
 ```
 
-**Tip:** Templates include ready-to-use `flake.nix` and `.envrc` files.
+**Tip:** Templates include ready-to-use `flake.nix` files.
 
 ---
 
