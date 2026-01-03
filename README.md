@@ -34,7 +34,10 @@ cd ~/nix_env && ./activate.sh
 | `modules/home/editor/` | ✏️ **Neovim LSP config** - Language servers, linters, formatters |
 | `modules/home/` | 🏠 **All other configs** - Browser, CLI, terminal, apps |
 
-**Want to add a new language?** Check `modules/devshells/` for examples!
+**Want to add a new language?**
+
+- Devshell: Check `modules/devshells/` for examples
+- LSP config: Check `modules/home/editor/` (separate from devshells)
 
 ---
 
