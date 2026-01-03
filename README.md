@@ -135,7 +135,7 @@ pip install ...
 
 ## 🛠️ Included Tools
 
-### 🌐 Browser
+### 🌐 Browser Features
 
 |                   | Firefox with Privacy                                       |
 | :---------------- | :--------------------------------------------------------- |
@@ -207,14 +207,58 @@ pip install ...
 
 ## 🐚 Global Dev Shells
 
-> **No project setup needed — instant environments**
+> **No project setup needed — instant environments with LSP support**
 
 ```bash
-nix develop .#python    # 🐍 Python 3.13 + ruff
-nix develop .#slidev    # 🎨 Node.js + pnpm
-nix develop .#quarto    # 📖 Quarto + Jupyter
-nix develop .#typst     # 📝 Typst + tinymist
+nix develop .#python    # 🐍 Python 3.13 + ruff + pyright LSP
+nix develop .#slidev    # 🎨 Node.js + pnpm + prettier + eslint
+nix develop .#quarto    # 📖 Quarto + Jupyter + pyright LSP
+nix develop .#typst     # 📝 Typst + tinymist LSP + typstyle
 ```
+
+### 🚀 LSP-Enabled Development Workflow
+
+#### Python Development
+
+```mermaid
+flowchart TD
+    A[Enter devshell<br/>nix develop .#python] --> B[Open Neovim<br/>nvim file.py]
+    B --> C[LSP Active<br/>pyright for completion]
+    C --> D[Lint & Format<br/>ruff on save]
+    D --> E[Code Intelligence<br/>Go to definition, hover, etc.]
+```
+
+#### Typst Development
+
+```mermaid
+flowchart TD
+    A[Enter devshell<br/>nix develop .#typst] --> B[Open Neovim<br/>nvim file.typ]
+    B --> C[LSP Active<br/>tinymist for completion]
+    C --> D[Format<br/>typstyle on save]
+    D --> E[Live Preview<br/>tinymist features]
+```
+
+#### JavaScript/TypeScript (Slidev)
+
+```mermaid
+flowchart TD
+    A[Enter devshell<br/>nix develop .#slidev] --> B[Open Neovim<br/>nvim file.js]
+    B --> C[LSP Active<br/>volar for Vue/JS/TS]
+    C --> D[Lint & Format<br/>eslint + prettier on save]
+    D --> E[Vue Support<br/>Component completion]
+```
+
+#### Quarto (Scientific Publishing)
+
+```mermaid
+flowchart TD
+    A[Enter devshell<br/>nix develop .#quarto] --> B[Open Neovim<br/>nvim file.qmd]
+    B --> C[Python LSP<br/>pyright for code blocks]
+    C --> D[Render<br/>quarto render file.qmd]
+    D --> E[Preview<br/>HTML/PDF output]
+```
+
+> **💡 Tip**: LSP features activate automatically when you open files in supported languages. No extra configuration needed!
 
 ---
 
@@ -270,11 +314,7 @@ direnv allow
 
 > **Want to change something? Here's where to look:**
 
-<table>
-<tr>
-<td width="50%">
-
-### 🌐 Browser
+#### 🌐 Browser Configuration
 
 | Change             | File                     |
 | :----------------- | :----------------------- |
@@ -286,7 +326,7 @@ direnv allow
 </td>
 <td width="50%">
 
-### ✏️ Neovim
+#### ✏️ Neovim Configuration
 
 | Change         | File                 |
 | :------------- | :------------------- |
@@ -300,7 +340,7 @@ direnv allow
 <tr>
 <td>
 
-### 💻 CLI Tools
+#### 💻 CLI Tools
 
 | Change       | File               |
 | :----------- | :----------------- |
@@ -312,7 +352,7 @@ direnv allow
 </td>
 <td>
 
-### 🖥️ Terminal
+#### 🖥️ Terminal
 
 | Change         | File                   |
 | :------------- | :--------------------- |

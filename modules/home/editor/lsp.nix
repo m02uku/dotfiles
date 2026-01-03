@@ -3,16 +3,6 @@
   # LSP, Completion, Lint, Format, Diagnostics
   flake.modules.homeManager.neovim-lsp = { pkgs, ... }: {
     home.packages = with pkgs; [
-      # LSP servers
-      pyright
-      nil
-      marksman
-      # Linters and formatters
-      ruff
-      statix
-      markdownlint-cli
-      nixfmt
-      nodePackages.prettier
       # Copilot dependencies
       nodejs
     ];
@@ -24,6 +14,8 @@
           pyright.enable = true;
           nil_ls.enable = true;
           marksman.enable = true;
+          tinymist.enable = true;
+          volar.enable = true;
         };
       };
 
@@ -53,6 +45,9 @@
           python = [ "ruff" ];
           nix = [ "statix" ];
           markdown = [ "markdownlint" ];
+          javascript = [ "eslint" ];
+          typescript = [ "eslint" ];
+          vue = [ "eslint" ];
         };
       };
 
@@ -67,6 +62,10 @@
             python = [ "ruff_format" ];
             nix = [ "nixfmt" ];
             markdown = [ "prettier" ];
+            typst = [ "typstyle" ];
+            javascript = [ "prettier" ];
+            typescript = [ "prettier" ];
+            vue = [ "prettier" ];
           };
         };
       };
