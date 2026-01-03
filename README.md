@@ -175,11 +175,11 @@ pip install ...
 <table>
 <tr><td>
 
-| Layer             | Plugins                                                    |
-| :---------------- | :--------------------------------------------------------- |
-| 🧠 **LSP**        | pyright, nil_ls, marksman, tinymist, vue-ls, hls |
-| ⚡ **Completion** | **blink.cmp** (Rust-powered)                      |
-| 🔧 **Lint**       | ruff, statix, markdownlint, eslint, hlint        |
+| Layer             | Plugins                                             |
+| :---------------- | :-------------------------------------------------- |
+| 🧠 **LSP**        | pyright, nil_ls, marksman, tinymist, vue-ls, hls    |
+| ⚡ **Completion** | **blink.cmp** (Rust-powered)                        |
+| 🔧 **Lint**       | ruff, statix, markdownlint, eslint, hlint           |
 | 🎨 **Format**     | ruff, nixfmt-rfc-style, prettierd, typstyle, ormolu |
 
 </td><td>
