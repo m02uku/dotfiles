@@ -5,9 +5,6 @@
       packages = with pkgs; [
         nodejs_22
         nodePackages.pnpm
-        # LSP and tools
-        nodePackages.prettier
-        nodePackages.eslint
       ];
       shell = "${pkgs.zsh}/bin/zsh";
       shellHook = ''

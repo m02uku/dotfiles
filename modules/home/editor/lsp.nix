@@ -5,6 +5,24 @@
     home.packages = with pkgs; [
       # Copilot dependencies
       nodejs
+      # LSP servers
+      pyright
+      nil
+      marksman
+      tinymist
+      vue-language-server
+      haskell-language-server
+      # Linters
+      ruff
+      statix
+      markdownlint-cli
+      eslint
+      hlint
+      # Formatters
+      ormolu
+      prettierd
+      typstyle
+      nixfmt-rfc-style
     ];
 
     programs.nixvim = {

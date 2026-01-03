@@ -81,13 +81,13 @@ pip install ...
 │   │   └── home.nix      # Assembler
 │   │
 │   ├── 📂 devshells/     # 🐚 Development Shells
-│   │   ├── python.nix    #    Python 3.13 + ruff
+│   │   ├── python.nix    #    Python 3.13 runtime
 │   │   ├── slidev.nix    #    Node.js + pnpm
 │   │   ├── quarto.nix    #    Quarto + Jupyter
-│   │   ├── typst.nix     #    Typst + tinymist
-│   │   ├── nix.nix       #    Nix + nil LSP
-│   │   ├── markdown.nix  #    Markdown + marksman LSP
-│   │   └── haskell.nix   #    Haskell + HLS
+│   │   ├── typst.nix     #    Typst
+│   │   ├── nix.nix       #    Nix development
+│   │   ├── markdown.nix  #    Markdown development
+│   │   └── haskell.nix   #    Haskell toolchain
 │   │
 │   └── 📂 home/
 │       ├── base.nix
@@ -111,7 +111,7 @@ pip install ...
 │       ├── 📂 editor/        # ✏️ Neovim (NixVim)
 │       │   ├── neovim.nix    #    Core settings
 │       │   ├── keymaps.nix   #    All keybindings
-│       │   ├── lsp.nix       #    LSP, completion, lint
+│       │   ├── lsp.nix       #    LSP servers, linters, formatters
 │       │   ├── ui.nix        #    Theme, statusline
 │       │   ├── git.nix       #    Gitsigns
 │       │   └── editing.nix   #    Treesitter, mini, etc.
@@ -175,12 +175,12 @@ pip install ...
 <table>
 <tr><td>
 
-| Layer             | Plugins                      |
-| :---------------- | :--------------------------- |
-| 🧠 **LSP**        | pyright, nil_ls, marksman, tinymist, volar, hls |
-| ⚡ **Completion** | **blink.cmp** (Rust-powered)                     |
-| 🔧 **Lint**       | ruff, statix, markdownlint, eslint, hlint       |
-| 🎨 **Format**     | ruff, nixfmt, prettier, typstyle, ormolu        |
+| Layer             | Plugins                                                    |
+| :---------------- | :--------------------------------------------------------- |
+| 🧠 **LSP**        | pyright, nil_ls, marksman, tinymist, vue-ls, hls |
+| ⚡ **Completion** | **blink.cmp** (Rust-powered)                      |
+| 🔧 **Lint**       | ruff, statix, markdownlint, eslint, hlint        |
+| 🎨 **Format**     | ruff, nixfmt-rfc-style, prettierd, typstyle, ormolu |
 
 </td><td>
 
@@ -213,21 +213,21 @@ pip install ...
 > **No project setup needed — instant environments with LSP support**
 
 ```bash
-nix develop .#python    # 🐍 Python 3.13 + ruff + pyright LSP
-nix develop .#slidev    # 🎨 Node.js + pnpm + prettier + eslint
-nix develop .#quarto    # 📖 Quarto + Jupyter + pyright LSP
-nix develop .#typst     # 📝 Typst + tinymist LSP + typstyle
-nix develop .#nix       # ❄️ Nix + nil LSP + statix + nixfmt
-nix develop .#markdown  # 📝 Markdown + marksman LSP + prettier
-nix develop .#haskell   # λ Haskell + HLS + hlint + ormolu
+nix develop .#python    # 🐍 Python 3.13 runtime
+nix develop .#slidev    # 🎨 Node.js + pnpm
+nix develop .#quarto    # 📖 Quarto + Jupyter
+nix develop .#typst     # 📝 Typst
+nix develop .#nix       # ❄️ Nix development
+nix develop .#markdown  # 📝 Markdown development
+nix develop .#haskell   # λ Haskell toolchain
 ```
 
 ### 🚀 LSP-Enabled Development Workflow
 
 #### Python Development
 
-1. `nix develop .#python` - Enter devshell with Python + pyright LSP
-2. `nvim file.py` - Open file with full LSP support
+1. `nix develop .#python` - Enter devshell with Python runtime
+2. `nvim file.py` - Open file with full LSP support (pyright, ruff)
 3. Auto lint/format with ruff on save
 
 #### Typst Development

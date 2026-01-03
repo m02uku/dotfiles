@@ -8,9 +8,6 @@
         python313Packages.jupyter
         python313Packages.matplotlib
         python313Packages.pandas
-        # LSP and tools
-        pyright
-        ruff
       ];
       shell = "${pkgs.zsh}/bin/zsh";
       shellHook = ''echo "📊 Quarto $(quarto --version)"'';
