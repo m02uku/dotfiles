@@ -37,7 +37,7 @@ cd ~/nix_env && ./activate.sh
 **Want to add a new language?**
 
 - Devshell: Check `modules/devshells/` for examples
-- LSP config: Check `modules/home/editor/` (separate from devshells)
+- LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
 
 ---
 
