@@ -7,6 +7,12 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
+      initContent = ''
+        nd() {
+          nix develop "$DOTFILES_PATH#$1"
+        }
+      '';
+
       history = {
         size = 10000;
         save = 10000;
