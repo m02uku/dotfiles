@@ -109,7 +109,14 @@ nd python
 nix develop "$DOTFILES_PATH#python"
 
 # Other languages: Check modules/devshells/ directory!
-```
+
+Available devshells:
+- `python` - Python development environment
+- `haskell` - Haskell development environment
+- `markdown` - Markdown editing environment
+- `quarto` - Quarto publishing environment
+- `slidev` - Slidev presentation environment
+- `typst` - Typst document environment
 
 **Tip:** LSP features activate automatically when you open files in supported languages.
 

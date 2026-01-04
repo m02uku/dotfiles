@@ -9,10 +9,7 @@
             command "nvim"
           }
           pane split_direction="horizontal" size="25%" {
-            pane size="50%" {
-              command "nix"
-              args ["develop", "/placeholder/dotfiles/path#python"]
-            }
+            pane size="50%"
             pane size="50%"
           }
         }
