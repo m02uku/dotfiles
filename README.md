@@ -43,6 +43,12 @@
 
 **Note**: This setup works on both Linux and macOS. The activation script automatically detects the OS and adjusts commands accordingly.
 
+**Troubleshooting**:
+
+- If you see warnings about 'builtins.toFile' and store paths, these are harmless and related to NixVim/Home Manager internals. The setup will continue to work.
+- If you see "SSH config decryption failed", ensure your SSH private key (~/.ssh/id_ed25519) exists and agenix is available.
+- If you encounter zsh glob errors during ghq operations, temporarily disable extended globbing: `setopt no_extended_glob`
+
 ## Updating on Existing Machines
 
 If you've updated the dotfiles on another machine and want to apply the changes:
