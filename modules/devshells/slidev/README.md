@@ -8,6 +8,9 @@ nix develop .#slidev
 
 # From any project directory (after running ./activate.sh)
 nd slidev
+
+# Or explicitly
+nix develop "$DOTFILES_PATH#slidev"
 ```
 
 ## Available Tools

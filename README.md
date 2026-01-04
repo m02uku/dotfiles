@@ -45,13 +45,13 @@ Enter language-specific development environments:
 
 ```bash
 # From dotfiles directory
-nix develop "$DOTFILES_PATH#python"
+nix develop .#python
 
 # From any project directory (after running ./activate.sh)
 nd python
 
 # Or explicitly
-nix develop $DOTFILES_PATH#python
+nix develop "$DOTFILES_PATH#python"
 
 # Other languages: Check modules/devshells/ directory!
 ```

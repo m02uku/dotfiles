@@ -8,6 +8,9 @@ nix develop .#quarto
 
 # From any project directory (after running ./activate.sh)
 nd quarto
+
+# Or explicitly
+nix develop "$DOTFILES_PATH#quarto"
 ```
 
 ## Available Tools

@@ -8,6 +8,9 @@ nix develop .#hask
 
 # From any project directory (after running ./activate.sh)
 nd hask
+
+# Or explicitly
+nix develop "$DOTFILES_PATH#hask"
 ```
 
 ## Available Tools

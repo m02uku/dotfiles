@@ -8,6 +8,9 @@ nix develop .#markdown
 
 # From any project directory (after running ./activate.sh)
 nd markdown
+
+# Or explicitly
+nix develop "$DOTFILES_PATH#markdown"
 ```
 
 ## Available Tools

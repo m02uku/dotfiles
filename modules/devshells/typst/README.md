@@ -8,6 +8,9 @@ nix develop .#typst
 
 # From any project directory (after running ./activate.sh)
 nd typst
+
+# Or explicitly
+nix develop "$DOTFILES_PATH#typst"
 ```
 
 ## Available Tools

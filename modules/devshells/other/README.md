@@ -8,6 +8,9 @@ nix develop .#other
 
 # From any project directory (after running ./activate.sh)
 nd other
+
+# Or explicitly
+nix develop "$DOTFILES_PATH#other"
 ```
 
 ## Available Tools
