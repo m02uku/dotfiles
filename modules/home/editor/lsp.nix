@@ -12,6 +12,8 @@
       tinymist
       vue-language-server
       haskell-language-server
+      # Haskell compiler for LSP
+      ghc
       # Linters
       ruff
       statix

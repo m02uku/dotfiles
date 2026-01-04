@@ -15,8 +15,8 @@ nix develop "$DOTFILES_PATH#haskell"
 
 ## Available Tools
 
-- **GHC**: Glasgow Haskell Compiler
-- **Cabal**: Haskell package manager and build system
+
+-   **Cabal**: Haskell package manager and build system
 
 ## Usage Examples
 

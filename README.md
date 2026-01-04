@@ -98,7 +98,7 @@ cd ~/ghq/github.com/m02uku/dotfiles && git pull && ./activate.sh
 
 Enter language-specific development environments:
 
-```bash
+````bash
 # From dotfiles directory
 nix develop .#python
 
@@ -139,7 +139,7 @@ echo "use flake" > .envrc
 direnv allow
 
 # Environment activates automatically when you cd into the project!
-```
+````
 
 **Tip:** Templates include ready-to-use `flake.nix` files.
 
