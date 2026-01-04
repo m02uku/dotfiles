@@ -20,10 +20,10 @@
       default_shell "zsh"
       keybinds {
         locked {
-          bind "Ctrl \\" { SwitchToMode "Normal"; }
+          bind "Ctrl g" { SwitchToMode "Normal"; }
         }
         normal {
-          bind "Ctrl \\" { SwitchToMode "Locked"; }
+          bind "Ctrl g" { SwitchToMode "Locked"; }
         }
       }
     '';

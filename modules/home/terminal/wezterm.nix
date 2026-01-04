@@ -17,8 +17,6 @@
         -- Keys
         config.keys = {
           { key = "f", mods = "CTRL|SHIFT", action = wezterm.action.ToggleFullScreen },
-          { key = "o", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
-          { key = "\\", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
         }
         return config
       '';
