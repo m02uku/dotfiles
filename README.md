@@ -66,7 +66,7 @@ For project-specific environments that activate automatically:
 
 ```bash
 # Copy template to your project
-cp -r templates/python-ml ~/your-project
+cp -r modules/templates/python-ml ~/your-project
 cd ~/your-project
 
 # Create .envrc file
@@ -110,71 +110,71 @@ SSH settings are securely encrypted using [agenix](https://github.com/ryantm/age
 
 ### Key Management
 
-- **Shared Private Key**: Use the same Ed25519 private key across all machines for consistent decryption.
-- **Security**: Never commit private keys to the repository. Store securely (e.g., encrypted backup).
+-   **Shared Private Key**: Use the same Ed25519 private key across all machines for consistent decryption.
+-   **Security**: Never commit private keys to the repository. Store securely (e.g., encrypted backup).
 
 ### Adding SSH Hosts
 
 1. **Decrypt current config**:
 
-   ```bash
-   nix run nixpkgs#age -- -d -i ~/.ssh/id_ed25519 modules/core/secrets/ssh/config.age > temp_ssh_config
-   ```
+    ```bash
+    nix run nixpkgs#age -- -d -i ~/.ssh/id_ed25519 modules/core/secrets/ssh/config.age > temp_ssh_config
+    ```
 
 2. **Edit the config**:
 
-   ```bash
-   # Add new host entries to temp_ssh_config
-   # Example:
-   # Host new-server
-   #     HostName 192.168.1.100
-   #     User username
-   #     Port 22
-   ```
+    ```bash
+    # Add new host entries to temp_ssh_config
+    # Example:
+    # Host new-server
+    #     HostName 192.168.1.100
+    #     User username
+    #     Port 22
+    ```
 
 3. **Re-encrypt and update**:
 
-   ```bash
-   nix run nixpkgs#age -- -e -i ~/.ssh/id_ed25519 -o modules/core/secrets/ssh/config.age temp_ssh_config
-   rm temp_ssh_config
-   ```
+    ```bash
+    nix run nixpkgs#age -- -e -i ~/.ssh/id_ed25519 -o modules/core/secrets/ssh/config.age temp_ssh_config
+    rm temp_ssh_config
+    ```
 
 4. **Commit changes**:
 
-   ```bash
-   git add modules/core/secrets/ssh/config.age
-   git commit -m "Add new SSH host: new-server"
-   git push
-   ```
+    ```bash
+    git add modules/core/secrets/ssh/config.age
+    git commit -m "Add new SSH host: new-server"
+    git push
+    ```
 
 5. **Activate on all machines**:
 
-   ```bash
-   ./activate.sh
-   ```
+    ```bash
+    ./activate.sh
+    ```
 
 ### Setup on New Machine
 
 1. **Copy private key securely**:
 
-   ```bash
-   # From existing machine to new machine
-   scp ~/.ssh/id_ed25519 user@new-machine:~/.ssh/
-   scp ~/.ssh/id_ed25519.pub user@new-machine:~/.ssh/
-   ```
+    ```bash
+    # From existing machine to new machine
+    scp ~/.ssh/id_ed25519 user@new-machine:~/.ssh/
+    scp ~/.ssh/id_ed25519.pub user@new-machine:~/.ssh/
+    ```
 
 2. **Clone and activate**:
 
-   ```bash
-   git clone https://github.com/m02uku/dotfiles.git ~/nix_env
-   cd ~/nix_env && ./activate.sh
-   ```
+    ```bash
+    git clone https://github.com/m02uku/dotfiles.git ~/nix_env
+    cd ~/nix_env && ./activate.sh
+    ```
 
 3. **Verify SSH config**:
 
-   ```bash
-   cat ~/.ssh/config  # Should show decrypted hosts
-   ssh aces-ubuntu-2  # Test connection
-   ```
+    ```bash
+    cat ~/.ssh/config  # Should show decrypted hosts
+    ssh aces-ubuntu-2  # Test connection
+    ```
 
 **Note**: The repository is safe to make public - encrypted secrets require the private key for decryption.
