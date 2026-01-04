@@ -3,12 +3,16 @@
 ## Quick Start
 
 ```bash
+# From dotfiles directory
 nix develop .#typst
+
+# From any project directory (after running ./activate.sh)
+nd typst
 ```
 
 ## Available Tools
 
--   **Typst**: Markup-based typesetting system
+- **Typst**: Markup-based typesetting system
 
 ## Usage Examples
 

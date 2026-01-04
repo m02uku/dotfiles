@@ -3,7 +3,11 @@
 ## Quick Start
 
 ```bash
+# From dotfiles directory
 nix develop .#markdown
+
+# From any project directory (after running ./activate.sh)
+nd markdown
 ```
 
 ## Available Tools

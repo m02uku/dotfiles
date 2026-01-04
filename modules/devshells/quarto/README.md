@@ -3,15 +3,19 @@
 ## Quick Start
 
 ```bash
+# From dotfiles directory
 nix develop .#quarto
+
+# From any project directory (after running ./activate.sh)
+nd quarto
 ```
 
 ## Available Tools
 
--   **Quarto**: Scientific and technical publishing
--   **Jupyter**: Python code execution backend
--   **Matplotlib**: Python plotting library
--   **Pandas**: Python data analysis library
+- **Quarto**: Scientific and technical publishing
+- **Jupyter**: Python code execution backend
+- **Matplotlib**: Python plotting library
+- **Pandas**: Python data analysis library
 
 ## Usage Examples
 
