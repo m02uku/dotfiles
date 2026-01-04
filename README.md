@@ -29,34 +29,34 @@ _A declarative, reproducible development environment using Nix and Home Manager.
 
 1. 📦 **Install Nix**
 
-   ```bash
-   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL
-   ```
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL
+    ```
 
 2. 🔑 **Copy SSH key** (optional)
 
-   ```bash
-   scp ~/.ssh/id_ed25519* user@new-machine:~/.ssh/
-   ```
+    ```bash
+    scp ~/.ssh/id_ed25519* user@new-machine:~/.ssh/
+    ```
 
 3. 📥 **Clone & activate**
 
-   ```bash
-   git clone https://github.com/m02uku/dotfiles.git
-   cd dotfiles && ./activate.sh
+    ```bash
+    git clone https://github.com/m02uku/dotfiles.git
+    cd dotfiles && ./activate.sh
 
-   # Move to ghq-managed location (ghq is now available)
-   rm -rf ../dotfiles
-   ghq get https://github.com/m02uku/dotfiles.git
-   cd ~/ghq/github.com/m02uku/dotfiles
-   ./activate.sh  # Run again if needed for path updates
-   ```
+    # Move to ghq-managed location (ghq is now available)
+    rm -rf ../dotfiles
+    ghq get https://github.com/m02uku/dotfiles.git
+    cd ~/ghq/github.com/m02uku/dotfiles
+    ./activate.sh  # Run again if needed for path updates
+    ```
 
 4. ✅ **Verify**
 
-   ```bash
-   cat ~/.ssh/config; nd python
-   ```
+    ```bash
+    cat ~/.ssh/config; nd python
+    ```
 
 > 💡 Works on Linux/macOS. Auto-detects OS.
 
@@ -68,9 +68,9 @@ cd ~/ghq/github.com/m02uku/dotfiles && git pull && ./activate.sh
 
 ### ⚠️ Troubleshooting
 
-- 🚨 'builtins.toFile' warnings: Ignore.
-- 🔐 SSH decryption failed: Check `~/.ssh/id_ed25519`.
-- 🐚 Zsh glob errors: Run `setopt no_extended_glob`.
+-   🚨 'builtins.toFile' warnings: Ignore.
+-   🔐 SSH decryption failed: Check `~/.ssh/id_ed25519`.
+-   🐚 Zsh glob errors: Run `setopt no_extended_glob`.
 
 ---
 
@@ -89,8 +89,8 @@ cd ~/ghq/github.com/m02uku/dotfiles && git pull && ./activate.sh
 
 **Want to add a new language?**
 
-- Devshell: Check `modules/devshells/` for examples
-- LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
+-   Devshell: Check `modules/devshells/` for examples
+-   LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
 
 ---
 
@@ -144,8 +144,8 @@ SSH settings are securely encrypted using [agenix](https://github.com/ryantm/age
 
 ### Key Management
 
-- **Shared Private Key**: Use the same Ed25519 private key across all machines for consistent decryption.
-- **Security**: Never commit private keys to the repository. Store securely (e.g., encrypted backup).
+-   **Shared Private Key**: Use the same Ed25519 private key across all machines for consistent decryption.
+-   **Security**: Never commit private keys to the repository. Store securely (e.g., encrypted backup).
 
 ### Adding SSH Hosts
 
@@ -199,8 +199,8 @@ Zellij provides panes, tabs, and layouts for terminal management.
 
 ### Usage
 
-- **Start Zellij**: Use `ze`.
-- **Development Layout**: `zellij --layout dev` for Neovim (left), zsh (top-right), zsh (bottom-right).
-- **Layouts**: Defined in `~/.config/zellij/layouts/`.
+-   **Start Zellij**: Use `ze`.
+-   **Development Layout**: `zellij --layout dev` for Neovim (left), zsh (top-right), zsh (bottom-right).
+-   **Layouts**: Defined in `~/.config/zellij/layouts/`.
 
 See [Zellij documentation](https://zellij.dev/documentation/) for details.

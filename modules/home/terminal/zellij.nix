@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   flake.modules.homeManager.zellij = {
     programs.zellij = {
@@ -8,9 +8,9 @@
         default_shell = "zsh";
         pane_frames = false;
         simplified_ui = true;
-        copy_command = if pkgs.stdenv.isDarwin then "pbcopy" else "wl-copy";
       };
     };
+
     home.file.".config/zellij/layouts/dev.kdl".text = ''
       layout {
         pane split_direction="vertical" {
