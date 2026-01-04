@@ -25,28 +25,26 @@ _A declarative, reproducible development environment using Nix and Home Manager.
 
 ## 🚀 Quick Start
 
-### On a New Machine
+### 🆕 On a New Machine
 
-1. **Install Nix**: `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL`
-2. **Copy SSH key** (if needed): `scp ~/.ssh/id_ed25519* user@new-machine:~/.ssh/`
-3. **Clone & activate**: `git clone https://github.com/m02uku/dotfiles.git && cd dotfiles && ./activate.sh`
-4. **Verify**: `cat ~/.ssh/config; nd python`
+1. 📦 **Install Nix**: `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL`
+2. 🔑 **Copy SSH key** (optional): `scp ~/.ssh/id_ed25519* user@new-machine:~/.ssh/`
+3. 📥 **Clone & activate**: `git clone https://github.com/m02uku/dotfiles.git && cd dotfiles && ./activate.sh`
+4. ✅ **Verify**: `cat ~/.ssh/config; nd python`
 
-**Note**: Works on Linux/macOS. Script detects OS.
+> 💡 Works on Linux/macOS. Auto-detects OS.
 
-**Troubleshooting**:
-
--   Warnings about 'builtins.toFile': Harmless.
--   SSH decryption failed: Ensure ~/.ssh/id_ed25519 exists.
--   Zsh glob errors: `setopt no_extended_glob`
-
-### Updating on Existing Machines
+### 🔄 Updating
 
 ```bash
-cd ~/ghq/github.com/m02uku/dotfiles
-git pull
-./activate.sh
+cd ~/ghq/github.com/m02uku/dotfiles && git pull && ./activate.sh
 ```
+
+### ⚠️ Troubleshooting
+
+- 🚨 'builtins.toFile' warnings: Ignore.
+- 🔐 SSH decryption failed: Check `~/.ssh/id_ed25519`.
+- 🐚 Zsh glob errors: Run `setopt no_extended_glob`.
 
 ---
 
@@ -65,8 +63,8 @@ git pull
 
 **Want to add a new language?**
 
--   Devshell: Check `modules/devshells/` for examples
--   LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
+- Devshell: Check `modules/devshells/` for examples
+- LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
 
 ---
 
@@ -183,16 +181,10 @@ See [Zellij documentation](https://zellij.dev/documentation/) for details.
 
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit issues, feature requests, or pull requests.
-
-- **Report Issues**: Found a bug? [Open an issue](https://github.com/m02uku/dotfiles/issues).
-- **Feature Requests**: Have an idea? [Suggest it here](https://github.com/m02uku/dotfiles/discussions).
-- **Contribute Code**: Fork the repo, make changes, and submit a PR.
-
-For more details, see [CONTRIBUTING.md](CONTRIBUTING.md) (if available).
+Issues, PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ using Nix and Home Manager</p>
+  <p>❤️ Made with Nix & Home Manager</p>
 </div>
