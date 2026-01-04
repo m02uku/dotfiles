@@ -15,7 +15,6 @@
         }
       }
     '';
-    # キーバインディング設定
     home.file.".config/zellij/config.kdl".text = ''
       default_mode "locked"
       default_shell "zsh"
