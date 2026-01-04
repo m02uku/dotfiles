@@ -17,8 +17,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 exec $SHELL
 
 # Clone & activate
-git clone https://github.com/m02uku/dotfiles.git ~/nix_env
-cd ~/nix_env && ./scripts/activate.sh
+git clone https://github.com/m02uku/dotfiles.git nix_env
+cd nix_env && ./scripts/activate.sh
 ```
 
 **Note**: This setup works on both Linux and macOS. The activation script automatically detects the OS and adjusts commands accordingly.
@@ -28,7 +28,7 @@ cd ~/nix_env && ./scripts/activate.sh
 If you've updated the dotfiles on another machine and want to apply the changes:
 
 ```bash
-cd ~/nix_env
+cd nix_env
 git pull
 ./scripts/activate.sh
 ```
@@ -188,8 +188,8 @@ Then activate on all machines:
 2. **Clone and activate**:
 
     ```bash
-    git clone https://github.com/m02uku/dotfiles.git ~/nix_env
-    cd ~/nix_env && ./activate.sh
+    git clone https://github.com/m02uku/dotfiles.git nix_env
+    cd nix_env && ./scripts/activate.sh
     ```
 
 3. **Verify SSH config**:
