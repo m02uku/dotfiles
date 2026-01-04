@@ -48,8 +48,6 @@ _A declarative, reproducible development environment using Nix and Home Manager.
     # Move to ghq-managed location (ghq is now available)
     rm -rf ../dotfiles
     ghq get https://github.com/m02uku/dotfiles.git
-    cd ~/ghq/github.com/m02uku/dotfiles
-    ./activate.sh  # Run again if needed for path updates
     ```
 
 4. ✅ **Verify**
