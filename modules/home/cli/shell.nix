@@ -1,7 +1,9 @@
 { ... }:
 {
-  flake.modules.homeManager.shell = { pkgs, ... }: {
-    home.packages = with pkgs; [ nix-your-shell ];
+  flake.modules.homeManager.shell =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [ nix-your-shell ];
 
       # Zsh
       programs.zsh = {
@@ -98,20 +100,20 @@
             $character
           '';
           character = {
-            success_symbol = "[❯](bold #50fa7b)";  # Dracula green
-            error_symbol = "[❯](bold #ff5555)";    # Dracula red
+            success_symbol = "[❯](bold #50fa7b)"; # Dracula green
+            error_symbol = "[❯](bold #ff5555)"; # Dracula red
           };
           directory = {
-            style = "bold #8be9fd";  # Dracula cyan
+            style = "bold #8be9fd"; # Dracula cyan
             truncation_length = 3;
             truncate_to_repo = true;
           };
           git_branch = {
             symbol = " ";
-            style = "bold #bd93f9";  # Dracula purple
+            style = "bold #bd93f9"; # Dracula purple
           };
           git_status = {
-            style = "bold #f1fa8c";  # Dracula yellow
+            style = "bold #f1fa8c"; # Dracula yellow
             format = "[$all_status$ahead_behind]($style) ";
           };
           python = {

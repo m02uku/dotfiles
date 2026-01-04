@@ -18,6 +18,8 @@
     home.file.".config/zellij/config.kdl".text = ''
       default_mode "locked"
       default_shell "zsh"
+      copy_command "pbcopy"
+      paste_command "pbpaste"
       keybinds {
         locked {
           bind "Ctrl g" { SwitchToMode "Normal"; }
