@@ -12,26 +12,35 @@
 
         -- Appearance
         config.color_scheme = "Dracula"
-        config.window_background_opacity = 0.95
+        config.window_background_opacity = 0.85
         config.window_decorations = "RESIZE"
         config.hide_tab_bar_if_only_one_tab = true
 
+        -- macOS specific blur
+        if wezterm.target_triple:find("darwin") then
+          config.macos_window_background_blur = 10
+        end
+
         -- Cursor
-        config.default_cursor_style = "SteadyBar"
+        -- config.default_cursor_style = "SteadyBar"
 
         -- Keys
-        config.keys = {
-          { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
-          { key = "d", mods = "CMD|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
-          { key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane { confirm = true } },
-        }
+        config.keys = {}
 
-        -- Fullscreen shortcut: Shift+Ctrl+F on Linux, Shift+Cmd+F on macOS
+        -- Platform-specific key bindings
+        local mod_single, mod_double
         if wezterm.target_triple:find("darwin") then
-          table.insert(config.keys, { key = "f", mods = "CMD|SHIFT", action = wezterm.action.ToggleFullScreen })
+          mod_single = "CMD"
+          mod_double = "CMD|SHIFT"
         else
-          table.insert(config.keys, { key = "f", mods = "CTRL|SHIFT", action = wezterm.action.ToggleFullScreen })
+          mod_single = "CTRL"
+          mod_double = "CTRL|SHIFT"
         end
+
+        table.insert(config.keys, { key = "d", mods = mod_single, action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } })
+        table.insert(config.keys, { key = "d", mods = mod_double, action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } })
+        table.insert(config.keys, { key = "w", mods = mod_single, action = wezterm.action.CloseCurrentPane { confirm = true } })
+        table.insert(config.keys, { key = "f", mods = mod_double, action = wezterm.action.ToggleFullScreen })
 
         return config
       '';
