@@ -14,7 +14,7 @@
     home.file.".config/zellij/layouts/dev.kdl".text = ''
       layout {
         pane split_direction="vertical" {
-          pane size="60%" focus=true {
+          pane size="75%" focus=true {
             command "nvim"
           }
           pane split_direction="horizontal" size="40%" {
@@ -23,11 +23,6 @@
           }
         }
       }
-    '';
-    programs.zsh.initContent = ''
-      if [[ -z "$ZELLIJ" ]]; then
-        zellij --layout dev
-      fi
     '';
   };
 }
