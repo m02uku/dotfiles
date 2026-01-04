@@ -19,6 +19,12 @@ exec $SHELL
 # Clone & activate
 git clone https://github.com/m02uku/dotfiles.git
 cd dotfiles && ./scripts/activate.sh
+
+# Move to ghq-managed location (ghq is now available)
+rm -rf ../dotfiles
+ghq get https://github.com/m02uku/dotfiles.git
+cd ~/ghq/github.com/m02uku/dotfiles
+./scripts/activate.sh  # Run again if needed for path updates
 ```
 
 **Note**: This setup works on both Linux and macOS. The activation script automatically detects the OS and adjusts commands accordingly.
@@ -28,7 +34,7 @@ cd dotfiles && ./scripts/activate.sh
 If you've updated the dotfiles on another machine and want to apply the changes:
 
 ```bash
-cd dotfiles
+cd ~/ghq/github.com/m02uku/dotfiles
 git pull
 ./scripts/activate.sh
 ```
@@ -188,8 +194,14 @@ Then activate on all machines:
 2. **Clone and activate**:
 
     ```bash
-    git clone https://github.com/m02uku/dotfiles.git nix_env
-    cd nix_env && ./scripts/activate.sh
+    git clone https://github.com/m02uku/dotfiles.git
+    cd dotfiles && ./scripts/activate.sh
+
+    # Move to ghq-managed location
+    rm -rf ../dotfiles
+    ghq get https://github.com/m02uku/dotfiles.git
+    cd ~/ghq/github.com/m02uku/dotfiles
+    ./scripts/activate.sh  # Run again if needed
     ```
 
 3. **Verify SSH config**:
