@@ -24,8 +24,14 @@
           { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" } },
           { key = "d", mods = "CMD|SHIFT", action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" } },
           { key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane { confirm = true } },
-          { key = "f", mods = "CMD|CTRL", action = wezterm.action.ToggleFullScreen },
         }
+
+        -- Fullscreen shortcut: Shift+Ctrl+F on Linux, Shift+Cmd+F on macOS
+        if wezterm.target_triple:find("darwin") then
+          table.insert(config.keys, { key = "f", mods = "CMD|SHIFT", action = wezterm.action.ToggleFullScreen })
+        else
+          table.insert(config.keys, { key = "f", mods = "CTRL|SHIFT", action = wezterm.action.ToggleFullScreen })
+        end
 
         return config
       '';
