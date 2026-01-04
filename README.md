@@ -201,7 +201,7 @@ Zellij provides panes, tabs, and layouts for terminal management.
 
 -   **Start Zellij**: Use `ze`.
 -   **Unlock Mode**: Zellij starts in locked mode. Press `Ctrl + g` to toggle between locked and normal modes.
--   **Development Layout**: `zellij --layout dev` for Neovim (left), zsh (top-right), zsh (bottom-right).
+-   **Development Layout**: Use `zedev` for Neovim (left), zsh (top-right), zsh (bottom-right).
 -   **Layouts**: Defined in `~/.config/zellij/layouts/`.
 
 See [Zellij documentation](https://zellij.dev/documentation/) for details.
