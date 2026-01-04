@@ -26,13 +26,13 @@
 3. **Clone & activate**:
    ```bash
    git clone https://github.com/m02uku/dotfiles.git
-   cd dotfiles && ./scripts/activate.sh
+   cd dotfiles && ./activate.sh
 
    # Move to ghq-managed location (ghq is now available)
    rm -rf ../dotfiles
    ghq get https://github.com/m02uku/dotfiles.git
    cd ~/ghq/github.com/m02uku/dotfiles
-   ./scripts/activate.sh  # Run again if needed for path updates
+   ./activate.sh  # Run again if needed for path updates
    ```
 
 4. **Verify setup**:
@@ -50,7 +50,7 @@ If you've updated the dotfiles on another machine and want to apply the changes:
 ```bash
 cd ~/ghq/github.com/m02uku/dotfiles
 git pull
-./scripts/activate.sh
+./activate.sh
 ```
 
 This will pull the latest changes and reapply the Home Manager configuration.
@@ -160,7 +160,7 @@ Use the provided script to add new SSH hosts securely:
 export EDITOR=nvim  # or code, vim, etc.
 
 # Run the script
-./scripts/add-ssh-host.sh
+./add-ssh-host.sh
 ```
 
 The script will:
@@ -190,9 +190,9 @@ git push
 Then activate on all machines:
 
 ```bash
-./scripts/activate.sh
+./activate.sh
 ```
 
-**Note**: The script updates the encrypted config in the repository. After pushing, run `./scripts/activate.sh` on each machine to apply the changes.
+**Note**: The script updates the encrypted config in the repository. After pushing, run `./activate.sh` on each machine to apply the changes.
 
 **Note**: The repository is safe to make public - encrypted secrets require the private key for decryption.
