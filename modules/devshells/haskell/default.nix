@@ -4,9 +4,6 @@
     devShells.hask = pkgs.mkShell {
       packages = with pkgs; [
         ghc
-        haskellPackages.haskell-language-server
-        haskellPackages.hlint
-        haskellPackages.ormolu
         haskellPackages.cabal-install
       ];
       shell = "${pkgs.zsh}/bin/zsh";

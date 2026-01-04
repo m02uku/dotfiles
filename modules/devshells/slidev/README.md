@@ -15,8 +15,8 @@ nix develop "$DOTFILES_PATH#slidev"
 
 ## Available Tools
 
-- **Node.js 22**: JavaScript runtime
-- **pnpm**: Fast package manager
+-   **Node.js 22**: JavaScript runtime
+-   **pnpm**: Fast package manager
 
 ## Usage Examples
 
