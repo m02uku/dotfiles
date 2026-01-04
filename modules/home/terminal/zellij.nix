@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   flake.modules.homeManager.zellij = {
     programs.zellij = {
@@ -8,7 +8,7 @@
         default_shell = "zsh";
         pane_frames = false;
         simplified_ui = true;
-        copy_command = "pbcopy";  # macOS, Linux will use wl-copy/xclip
+        copy_command = if pkgs.stdenv.isDarwin then "pbcopy" else "wl-copy";
       };
     };
     home.file.".config/zellij/layouts/dev.kdl".text = ''
