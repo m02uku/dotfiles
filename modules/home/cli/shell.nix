@@ -96,7 +96,7 @@
         enableZshIntegration = true;
         settings = {
           format = ''
-            [🚀](bold #50fa7b)$directory$git_branch$git_status$nix_shell$python$nodejs$rust$golang$cmd_duration$time$memory$battery
+            [🚀](bold #50fa7b)$directory$git_branch$git_commit$git_state$git_status$git_metrics$nix_shell$python$nodejs$rust$golang$cmd_duration$time$memory$battery
             $character
           '';
           character = {
@@ -118,6 +118,21 @@
           git_status = {
             style = "bold #f1fa8c"; # Dracula yellow
             format = "[$all_status$ahead_behind]($style) ";
+          };
+          git_commit = {
+            commit_hash_length = 7;
+            style = "bold #6272a4"; # Dracula comment
+            format = "[\\($hash\\)]($style) ";
+          };
+          git_state = {
+            style = "bold #ffb86c"; # Dracula orange
+            format = "\\([$state( $progress_current/$progress_total)]($style)\\) ";
+          };
+          git_metrics = {
+            disabled = false;
+            format = "[+$added]($added_style)/[-$deleted]($deleted_style) ";
+            added_style = "bold #50fa7b";
+            deleted_style = "bold #ff5555";
           };
           python = {
             symbol = "🐍";
