@@ -67,6 +67,7 @@
           python = [ "ruff" ];
           nix = [ "statix" ];
           markdown = [ "markdownlint" ];
+          quarto = [ "markdownlint" ];
           javascript = [ "eslint" ];
           typescript = [ "eslint" ];
           vue = [ "eslint" ];
@@ -85,6 +86,7 @@
             python = [ "ruff_format" ];
             nix = [ "nixfmt" ];
             markdown = [ "prettier" ];
+            quarto = [ "prettier" ];
             typst = [ "typstyle" ];
             javascript = [ "prettier" ];
             typescript = [ "prettier" ];
@@ -98,6 +100,15 @@
         enable = true;
         settings.auto_close = true;
       };
+
+      # Quarto support: treat .qmd files as markdown for LSP
+      extraConfigLua = ''
+        vim.filetype.add({
+          extension = {
+            qmd = "markdown",
+          },
+        })
+      '';
 
     };
   };
