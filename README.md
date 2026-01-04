@@ -12,6 +12,10 @@
 # Install Nix
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
+# Open a new shell or source the Nix profile
+# (Nix commands won't be available until you do this)
+exec $SHELL  # or open a new terminal
+
 # Clone & activate
 git clone https://github.com/m02uku/dotfiles.git ~/nix_env
 cd ~/nix_env && ./scripts/activate.sh
