@@ -25,7 +25,7 @@ let
         user = userName;
         inherit homeDir nurPkgs;
       };
-      modules = [ inputs.nixvim.homeModules.nixvim inputs.agenix.homeManagerModules.default ] ++ hmModules;
+      modules = [ inputs.nixvim.homeModules.nixvim ] ++ hmModules;
     };
 in
 {
