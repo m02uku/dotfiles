@@ -15,7 +15,6 @@ nix develop "$DOTFILES_PATH#haskell"
 
 ## Available Tools
 
-
 -   **Cabal**: Haskell package manager and build system
 
 ## Usage Examples
