@@ -3,6 +3,7 @@
   flake.modules.homeManager.zellij = { pkgs, ... }: {
     home.packages = [ pkgs.zellij ];
     home.file.".config/zellij/layouts/dev.kdl".text = ''
+      session_name "dev"
       layout {
         pane split_direction="vertical" {
           pane size="75%" focus=true {
