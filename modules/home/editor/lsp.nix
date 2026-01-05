@@ -84,6 +84,9 @@
           vue = [ "eslint" ];
           haskell = [ "hlint" ];
         };
+        autoCmd = {
+          event = [ "BufWritePost" "BufReadPost" ];
+        };
       };
 
       plugins.conform-nvim = {
