@@ -85,7 +85,7 @@
           haskell = [ "hlint" ];
         };
         autoCmd = {
-          event = [ "BufWritePost" "BufReadPost" ];
+          event = [ "BufWritePost" "BufEnter" ];
         };
       };
 
