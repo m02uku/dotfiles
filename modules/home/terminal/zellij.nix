@@ -6,15 +6,15 @@
       session_name "dev"
       layout {
         pane split_direction="vertical" {
-          pane split_direction="horizontal" size="70%" {
+          pane split_direction="horizontal" size="60%" {
             pane size="60%" focus=true name="nvim" {
               command "nvim"
             }
             pane size="40%" name="cmd"
           }
-          pane split_direction="horizontal" size="30%" {
+          pane split_direction="horizontal" size="40%" {
             pane size="60%" name="git" {
-              command "lg"
+              command "lazygit"
             }
             pane size="40%" name="stats" {
               command "btop"
