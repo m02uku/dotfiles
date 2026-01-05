@@ -21,6 +21,7 @@
       tldr         # Simplified man pages
       trash-cli    # Safe rm
       entr         # Run command on file change
+      sshfs        # Mount remote directories over SSH
     ];
   };
 }
