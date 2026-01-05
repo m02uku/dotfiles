@@ -23,6 +23,7 @@
       # Formatters
       ormolu
       prettierd
+      prettier
       typstyle
       nixfmt-rfc-style
     ];
