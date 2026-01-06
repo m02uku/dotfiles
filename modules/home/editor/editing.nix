@@ -7,10 +7,10 @@
         settings.ensure_installed = [ "python" "nix" "markdown" "lua" "vim" "vimdoc" ];
       };
 
-      # plugins.flash = {
-      #   enable = true;
-      #   settings.modes.search.enabled = true;
-      # };
+      plugins.flash = {
+        enable = true;
+        settings.modes.search.enabled = true;
+      };
 
       plugins.oil = {
         enable = true;
