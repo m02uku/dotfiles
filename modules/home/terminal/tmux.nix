@@ -94,7 +94,7 @@
         setw -g window-status-format '#[bg=colour239,fg=colour237,noitalics]#[bg=colour239,fg=colour223] #I #[bg=colour239,fg=colour223]#[bg=colour239,fg=colour223] #W #[bg=colour237,fg=colour239,noitalics]'
         setw -g window-status-current-style 'bg=colour214,fg=colour237'
         setw -g window-status-style 'bg=colour239,fg=colour223'
-        setw -g window-status-separator ''
+        setw -g window-status-separator ""
 
         # Pane borders
         set -g pane-border-style 'fg=colour238,bg=colour237'
