@@ -5,7 +5,7 @@
       enable = true;
       shell = "${pkgs.zsh}/bin/zsh";
       shortcut = "a";
-      mouse = true;
+      mouse = false;
 
       plugins = with pkgs.tmuxPlugins; [
         sensible
@@ -28,7 +28,6 @@
       ];
 
       extraConfig = ''
-
         # Vi mode for copy mode
         setw -g mode-keys vi
 
@@ -38,12 +37,11 @@
         bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
 
         # Reload config
-        bind r source-file ~/.tmux.conf \; display "Reloaded!"
+        bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 
         # Smart split commands
         bind \\ split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
-        bind c new-window -c "#{pane_current_path}"
         unbind '"'
         unbind %
 
@@ -52,10 +50,6 @@
         bind j select-pane -D
         bind k select-pane -U
         bind l select-pane -R
-
-        # Window navigation (with prefix for consistency)
-        bind p previous-window
-        bind n next-window
 
         # Pane resizing
         bind -r H resize-pane -L 5
