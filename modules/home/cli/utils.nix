@@ -24,7 +24,6 @@
         trash-cli # Safe rm
         entr # Run command on file change
         sshfs # Mount remote directories over SSH
-        comma # Run commands without installing
       ];
     };
 }
