@@ -10,7 +10,7 @@
         packages = with pkgs; [
           python313Packages.jupyter
           uv
-          typos
+          ty
         ];
         shellHook = ''
           if [ ! -d venv ]; then
