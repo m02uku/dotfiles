@@ -12,6 +12,11 @@
         syntaxHighlighting.enable = true;
 
         initContent = ''
+          # Fix Homebrew completions
+          if command -v brew >/dev/null 2>&1; then
+            FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+          fi
+
           nd() {
             nix develop "$DOTFILES_PATH#$1"
           }
@@ -79,6 +84,9 @@
           # HTTP
           http = "xh";
           https = "xh --https";
+
+          # Opencode
+          oc = "opencode";
         };
       };
 
