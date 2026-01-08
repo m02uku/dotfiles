@@ -31,10 +31,26 @@
         options.desc = "Force Quit All";
       }
       {
-        mode = "n";
+        mode = "i";
+        key = "jj";
+        action = "<Esc>:nohl<Cr>";
+        options.desc = "Exit Insert and Clear Highlight";
+      }
+      {
+        mode = [
+          "n"
+          "i"
+          "v"
+          "o"
+          "c"
+          "t"
+        ];
         key = "<Esc>";
-        action = "<cmd>nohl<cr>";
-        options.desc = "Clear Highlight";
+        action = "<Esc>:nohl<Cr>";
+        options = {
+          silent = true;
+          desc = "Clear Highlight";
+        };
       }
 
       # ─────────────────────────────────────────────────────────────────────
