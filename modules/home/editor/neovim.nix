@@ -24,6 +24,9 @@
           expandtab = true;
           shiftwidth = 2;
           tabstop = 2;
+          softtabstop = -1;
+          autoindent = true;
+          smartindent = true;
 
           # Undo
           undofile = true;

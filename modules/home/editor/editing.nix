@@ -4,7 +4,20 @@
     programs.nixvim = {
       plugins.treesitter = {
         enable = true;
-        settings.ensure_installed = [ "python" "nix" "markdown" "lua" "vim" "vimdoc" ];
+        highlight.enable = true;
+        settings.ensure_installed = [
+          "python"
+          "nix"
+          "markdown"
+          "lua"
+          "vim"
+          "vimdoc"
+          "r"
+          "julia"
+          "bash"
+          "html"
+          "quarto"
+        ];
       };
 
       plugins.flash = {
@@ -16,7 +29,12 @@
         enable = true;
         settings = {
           default_file_explorer = true;
-          columns = [ "icon" "permissions" "size" "mtime" ];
+          columns = [
+            "icon"
+            "permissions"
+            "size"
+            "mtime"
+          ];
           keymaps = {
             "\\" = "actions.close";
           };
@@ -38,6 +56,23 @@
           move = { };
           ai = { };
         };
+      };
+
+      plugins.bullets = {
+        enable = true;
+        settings = {
+          bullets_enabled_file_types = [
+            "markdown"
+            "text"
+            "gitcommit"
+            "scratch"
+            "quarto"
+          ];
+        };
+      };
+
+      plugins.quarto-nvim = {
+        enable = true;
       };
 
       plugins.snacks = {
