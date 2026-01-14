@@ -24,12 +24,10 @@ in
               inherit pkgs;
               extraSpecialArgs = {
                 user = userName;
-                inherit homeDir nurPkgs pkgs;
-                agenix = inputs.agenix.packages.${system}.agenix;
+                inherit homeDir nurPkgs;
               };
               modules = [
                 inputs.nixvim.homeModules.nixvim
-                inputs.agenix.homeManagerModules.default
               ]
               ++ hmModules;
             };

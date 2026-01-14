@@ -76,7 +76,7 @@ nix build ".#homeConfigurations.$(whoami).activationPackage"
 ./result/activate
 ```
 
-SSH configuration will be decrypted automatically during activation if your private key is present at `~/.ssh/id_ed25519`.
+SSH configuration is managed manually outside of Nix.
 
 ### ⚠️ Troubleshooting
 
@@ -157,60 +157,9 @@ direnv allow
 
 ---
 
-## SSH Configuration Management
+### SSH Configuration Management
 
-SSH settings are securely encrypted using [agenix](https://github.com/ryantm/agenix). Sensitive host information (IP addresses, ports) is protected while maintaining declarative configuration.
-
-### Key Management
-
--   **Shared Private Key**: Use the same Ed25519 private key across all machines for consistent decryption.
--   **Security**: Never commit private keys to the repository. Store securely (e.g., encrypted backup).
-
-### Adding SSH Hosts
-
-Use the provided script to add new SSH hosts securely:
-
-```bash
-# Set your editor if not already set
-export EDITOR=nvim  # or code, vim, etc.
-
-# Run the script
-./add-ssh-host.sh
-```
-
-The script will:
-
-1. Decrypt the current SSH config
-2. Open your editor to add new host entries
-3. Re-encrypt and save the config
-
-**Example host entry to add:**
-
-```bash
-Host new-server
-    HostName 192.168.1.100
-    User username
-    Port 22
-    IdentityFile ~/.ssh/id_ed25519
-```
-
-After running the script, commit the changes:
-
-```bash
-git add secrets/ssh/config.age
-git commit -m "Add new SSH host: new-server"
-git push
-```
-
-Then activate on all machines:
-
-```bash
-./activate.sh
-```
-
-**Note**: The script updates the encrypted config in the repository. After pushing, run `./activate.sh` on each machine to apply the changes.
-
-**Note**: The repository is safe to make public - encrypted secrets require the private key for decryption.
+SSH settings are managed manually. Store your SSH config at `~/.ssh/config` and private keys in `~/.ssh/`. No Nix-managed encryption or decryption.
 
 ## Tmux (Terminal Multiplexer)
 

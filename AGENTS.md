@@ -51,10 +51,7 @@ This document provides guidelines for coding agents working in this Nix-based do
 - **SSH decryption**: Script checks key existence and decryption success
 
 ### Security Practices
-- **Secrets**: Use `agenix` for encrypted files (e.g., `secrets/ssh/config.age`)
-- **Never commit keys**: Private keys stay in `~/.ssh/`, not repo
-- **Public repo safe**: Encrypted secrets require private key for decryption
-- **Permissions**: SSH config set to 600 after decryption
+- **No secrets managed by Nix** - Handle sensitive data manually outside the repository
 
 ### Git Practices
 - **Commits**: Use descriptive messages (e.g., "Add Firefox extensions")
@@ -98,17 +95,12 @@ This document provides guidelines for coding agents working in this Nix-based do
 - **Adding new**: Copy existing devshell, modify packages/tools
 
 ### SSH Management
-- **Adding hosts**: Use `./add-ssh-host.sh` (decrypts, edits, re-encrypts)
-- **Key location**: `~/.ssh/id_ed25519` (not in repo)
-- **Config**: Encrypted in `secrets/ssh/config.age`
-- **Activation**: Decrypted automatically during home-manager activation (via agenix)
+- **Manual**: Manage SSH config and keys manually outside Nix
 
 ### Common Pitfalls
 - **Unfree packages**: Not allowed globally, import nixpkgs without restrictions where needed
 - **Darwin/Linux differences**: Use `pkgs.stdenv.isDarwin` for paths/OS-specific logic
 - **Flake inputs**: Follows ensure compatibility (e.g., nixpkgs-unstable)
-- **Activation order**: SSH decryption happens before home-manager activation
-- **CI builds**: Skip SSH decryption in CI environments
 
 ### Performance Tips
 - **Build caching**: Nix handles caching automatically
