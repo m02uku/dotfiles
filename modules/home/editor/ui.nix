@@ -7,6 +7,29 @@
         enable = true;
       };
 
+      plugins.web-devicons = {
+        enable = true;
+      };
+
+      plugins.bufferline = {
+        enable = true;
+        settings = {
+          options = {
+            mode = "buffers";
+            separator_style = "slant";
+            diagnostics = "nvim_lsp";
+            offsets = [
+              {
+                filetype = "neo-tree";
+                text = "Neo-tree";
+                highlight = "Directory";
+                text_align = "left";
+              }
+            ];
+          };
+        };
+      };
+
       plugins.lualine = {
         enable = true;
         settings.options = {
@@ -48,4 +71,5 @@
       };
     };
   };
+
 }
