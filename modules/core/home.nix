@@ -26,6 +26,7 @@ in
                 user = userName;
                 inherit homeDir nurPkgs;
                 agenix = inputs.agenix.packages.${system}.agenix;
+                age = inputs.agenix.packages.${system}.age;
               };
               modules = [
                 inputs.nixvim.homeModules.nixvim
