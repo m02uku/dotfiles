@@ -6,11 +6,10 @@ This document provides guidelines for coding agents working in this Nix-based do
 
 ### Build Commands
 - **Full flake build**: `nix flake check` (validates flake outputs)
-- **Home-manager config build**: `nix build ".#homeConfigurations.soranagano.activationPackage"` (builds activation package including secrets decryption)
-- **Activation**: Run `./result/activate` after build (handles SSH decryption and home-manager activation)
+- **Home-manager config build**: `nix build ".#homeConfigurations.soranagano.activationPackage"` (builds activation package)
+- **Activation**: Run `./result/activate` after build (applies home-manager configuration)
 - **Short home build**: `nix build ".#packages.soranagano"` (shortcut to activation package)
 - **Specific devshell**: `nix develop .#python` (enters Python devshell)
-- **Legacy activation script**: `./activate.sh` (deprecated, use direct build + activate for new setups)
 
 ### Lint Commands
 - **Nix formatting**: `nixfmt` (format Nix files - run manually or via LSP)
@@ -18,8 +17,7 @@ This document provides guidelines for coding agents working in this Nix-based do
 
 ### Test Commands
 - **No formal tests** - this is a configuration repo, not a software project
-- **Manual testing**: Run `./activate.sh` and verify tools/apps work (e.g., `tm`, `nd python`, `git status`)
-- **SSH test**: After activation, check `cat ~/.ssh/config` and test SSH connections
+- **Manual testing**: Build and activate, then verify tools/apps work (e.g., `tm`, `nd python`, `git status`)
 - **Single "test"**: Build a specific output like `nix build .#homeConfigurations.soranagano.activationPackage --dry-run`
 
 ## 2. Code Style Guidelines
@@ -47,8 +45,7 @@ This document provides guidelines for coding agents working in this Nix-based do
 ### Error Handling
 - **Nix expressions**: Failures propagate naturally - use `assert` for preconditions
 - **Build errors**: Check with `nix log` after failed builds
-- **Activation**: `./activate.sh` handles errors with exit codes
-- **SSH decryption**: Script checks key existence and decryption success
+- **Activation**: Run `./result/activate` manually after build
 
 ### Security Practices
 - **No secrets managed by Nix** - Handle sensitive data manually outside the repository
@@ -63,7 +60,6 @@ This document provides guidelines for coding agents working in this Nix-based do
 - `modules/core/`: Flake core (home.nix, systems.nix)
 - `modules/home/`: Home-manager modules by category (cli/, editor/, etc.)
 - `modules/devshells/`: Language-specific dev environments
-- `secrets/`: Encrypted sensitive data
 - `home/`: User-specific home-manager config
 - `.github/`: CI workflows (test.yml)
 
@@ -86,7 +82,7 @@ This document provides guidelines for coding agents working in this Nix-based do
 1. Create file in appropriate `modules/home/` subdirectory
 2. Import in `modules/core/home.nix` via `hmModules`
 3. Test with `nix build ".#homeConfigurations.soranagano.activationPackage"`
-4. Run `./activate.sh` to apply
+4. Run `./result/activate` to apply
 5. Commit changes
 
 ### Devshell Usage
@@ -104,7 +100,7 @@ This document provides guidelines for coding agents working in this Nix-based do
 
 ### Performance Tips
 - **Build caching**: Nix handles caching automatically
-- **Incremental updates**: `git pull && ./activate.sh` for updates
+- **Incremental updates**: `git pull && nix build ".#homeConfigurations.soranagano.activationPackage" && ./result/activate` for updates
 - **Dry runs**: Use `--dry-run` for build commands to check without building
 - **Parallel builds**: Nix builds in parallel by default
 

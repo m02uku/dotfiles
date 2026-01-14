@@ -43,7 +43,9 @@ _A declarative, reproducible development environment using Nix and Home Manager.
 
     ```bash
     git clone https://github.com/s0r4d3v/dotfiles.git
-    cd dotfiles && ./activate.sh
+    cd dotfiles
+    nix build ".#homeConfigurations.$(whoami).activationPackage"
+    ./result/activate
 
     # Move to ghq-managed location (ghq is now available)
     rm -rf ../dotfiles
@@ -56,27 +58,19 @@ _A declarative, reproducible development environment using Nix and Home Manager.
     cat ~/.ssh/config; nd python
     ```
 
-> 💡 Works on Linux/macOS. Auto-detects OS.
-
 ### 🔄 Updating
 
 ```bash
-cd ~/ghq/github.com/s0r4d3v/dotfiles && git pull && ./activate.sh && cd -
+cd ~/ghq/github.com/s0r4d3v/dotfiles
+git pull
+nix build ".#homeConfigurations.$(whoami).activationPackage"
+./result/activate
+cd -
 ```
 
 ### Manual Activation (Alternative to ./activate.sh)
 
-If you prefer using standard Nix commands without the activation script:
-
-```bash
-# Build the home-manager configuration
-nix build ".#homeConfigurations.$(whoami).activationPackage"
-
-# Activate it
-./result/activate
-```
-
-SSH configuration is managed manually outside of Nix.
+No longer needed - this is now the standard method.
 
 ### ⚠️ Troubleshooting
 
