@@ -1,7 +1,10 @@
 { inputs, config, ... }:
 let
   hmModules = builtins.attrValues config.flake.modules.homeManager;
-  users = [ "soranagano" ]; # Add more users here for multi-machine support
+  users = [
+    "soranagano"
+    "s0r4d3v"
+  ]; # Add more users here for multi-machine support
 in
 {
   perSystem =

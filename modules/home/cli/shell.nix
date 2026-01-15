@@ -57,6 +57,9 @@
           gb = "git branch";
           lg = "lazygit";
 
+          # Ghq
+          repo = "cd $(ghq list -p | fzf --delimiter=/ --nth=-2,-1)";
+
           # Editor
           v = "nvim";
           vi = "nvim";
