@@ -1,102 +1,5 @@
 { ... }:
 {
-  flake.modules.homeManager.programs =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [
-        # Modern ls/cat
-        eza
-        bat
-
-        # JSON/HTTP
-        jq
-        curl
-        wget
-        xh # Modern curl for APIs
-
-        # System monitoring
-        btop # Modern htop
-        dust # Modern du
-        duf # Modern df
-
-        # Productivity
-        tldr # Simplified man pages
-        trash-cli # Safe rm
-        entr # Run command on file change
-        sshfs # Mount remote directories over SSH
-
-        # Git
-        gh
-        ghq
-        lazygit
-
-        # Containers
-        colima # Docker on macOS/Linux without Docker Desktop
-        docker # Docker CLI (colima provides the daemon)
-
-        # Search
-        ripgrep
-        fd
-
-        # Nix tools
-        comma # Run uninstalled commands: , cowsay hello
-      ];
-
-      programs = {
-
-        git = {
-          enable = true;
-          settings = {
-            user = {
-              name = "s0r4d3v";
-              email = "s0r4d3v@gmail.com";
-            };
-            init.defaultBranch = "main";
-            push.autoSetupRemote = true;
-            pull.rebase = true;
-          };
-        };
-
-        jujutsu = {
-          enable = true;
-          settings = {
-            user = {
-              name = "s0r4d3v";
-              email = "s0r4d3v@gmail.com";
-            };
-          };
-        };
-
-        delta = {
-          enable = true;
-          enableGitIntegration = true;
-        };
-
-        direnv = {
-          enable = true;
-          nix-direnv.enable = true;
-        };
-
-        fzf = {
-          enable = true;
-          enableZshIntegration = true;
-        };
-
-        # nix-index: provides nix-locate command
-        nix-index = {
-          enable = true;
-          enableZshIntegration = true;
-        };
-
-        opencode = {
-          enable = true;
-          settings = {
-            theme = "dracula";
-          };
-        };
-      };
-    };
-
   flake.modules.homeManager.shell =
     { pkgs, ... }:
     {
@@ -193,5 +96,4 @@
         enableZshIntegration = true;
       };
     };
-
 }

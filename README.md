@@ -14,7 +14,10 @@ _A declarative, reproducible development environment using Nix and Home Manager.
 
 ## 📋 Table of Contents
 
--   Quick Start
+-   Prerequisites
+-   Installation (New Machine)
+-   Updating
+-   Module Management
 -   Directory Structure
 -   Using Devshells
 -   SSH Configuration
@@ -23,60 +26,95 @@ _A declarative, reproducible development environment using Nix and Home Manager.
 
 ---
 
-## 🚀 Quick Start
+## 📋 Prerequisites
 
-### 🆕 On a New Machine
+Before getting started, ensure you have Nix installed on your system.
 
-1. 📦 **Install Nix**
+### Install Nix
 
-    ```bash
-    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL
-    ```
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL
+```
 
-2. 🔑 **Copy SSH key** (optional)
+For other installation methods, see the [official Nix documentation](https://nixos.org/download).
 
-    ```bash
-    scp ~/.ssh/id_ed25519* user@new-machine:~/.ssh/
-    ```
+---
 
-3. 📥 **Clone & activate**
+## 🆕 Installation (New Machine)
 
-    ```bash
-    git clone https://github.com/s0r4d3v/dotfiles.git
-    cd dotfiles
-    nix build ".#homeConfigurations.$(whoami).activationPackage"
-    ./result/activate
+1. **Clone the repository**
 
-    # Move to ghq-managed location (ghq is now available)
-    rm -rf ../dotfiles
-    ghq get https://github.com/s0r4d3v/dotfiles.git
-    ```
+   ```bash
+   git clone https://github.com/s0r4d3v/dotfiles.git
+   cd dotfiles
+   ```
 
-4. ✅ **Verify**
+2. **Build and activate the configuration**
 
-    ```bash
-    cat ~/.ssh/config; nd python
-    ```
+   ```bash
+   nix build ".#homeConfigurations.$(whoami).activationPackage"
+   ./result/activate
+   ```
 
-### 🔄 Updating
+3. **Optional: Move to ghq-managed location** (if using ghq)
+
+   ```bash
+   # Move to ghq-managed location (ghq is now available)
+   rm -rf ../dotfiles
+   ghq get https://github.com/s0r4d3v/dotfiles.git
+   ```
+
+4. **Verify installation**
+
+   ```bash
+   # Check if tools are available
+   nd python  # Enter Python devshell
+   tm         # Start Tmux
+   v          # Open Neovim
+   ```
+
+---
+
+## 🔄 Updating
+
+To pull the latest changes from GitHub and apply them to your local setup:
 
 ```bash
 cd ~/ghq/github.com/s0r4d3v/dotfiles
 git pull
 nix build ".#homeConfigurations.$(whoami).activationPackage"
 ./result/activate
-cd -
 ```
 
-### Manual Activation (Alternative to ./activate.sh)
+This will:
+- Pull the latest version from GitHub.
+- Rebuild the configuration with any new changes.
+- Apply the updates to your user environment.
 
-No longer needed - this is now the standard method.
+---
+
+## 🛠️ Module Management
+
+### Adding or Updating Modules
+
+Modules are automatically loaded via `import-tree`. To add a new module:
+
+1. Create a new `.nix` file in the appropriate `modules/home/` subdirectory (e.g., `modules/home/cli/my-tool.nix`).
+2. Define it as `flake.modules.homeManager.<name> = { ... }: { ... };`.
+3. Rebuild and activate: `nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate`.
+
+### Customizing Existing Modules
+
+Edit the relevant files in `modules/home/` (e.g., `editor/lsp.nix` for LSP settings), then rebuild and activate as above.
+
+For detailed module structure, see the Directory Structure section below.
 
 ### ⚠️ Troubleshooting
 
 -   🚨 'builtins.toFile' warnings: Ignore.
 -   🔐 SSH decryption failed: Check `~/.ssh/id_ed25519`.
 -   🐚 Zsh glob errors: Run `setopt no_extended_glob`.
+-   📦 Build fails: Ensure Nix is installed and run `nix flake update` to refresh inputs.
 
 ---
 
@@ -84,19 +122,19 @@ No longer needed - this is now the standard method.
 
 | Directory                     | Purpose                                                      |
 | :---------------------------- | :----------------------------------------------------------- |
-| `modules/devshells/`          | 🐍 Language support - See available devshells here           |
+| `modules/devshells/`          | 🐍 Language-specific development environments                |
 | `modules/home/base.nix`       | 🏠 Base home-manager configuration                           |
 | `modules/home/browser/`       | 🌐 Web browser settings                                      |
-| `modules/home/cli/`           | 💻 CLI tools and shell configuration                         |
-| `modules/home/communication/` | 💬 Communication apps (Slack, Discord, etc.)                 |
-| `modules/home/editor/`        | ✏️ Neovim LSP config - Language servers, linters, formatters |
-| `modules/home/productivity/`  | 📅 Productivity tools (notes, calendar, etc.)                |
-| `modules/home/terminal/`      | 🖥️ Terminal emulator settings                                |
+| `modules/home/cli/`           | 💻 CLI tools, Git config, and shell settings                 |
+| `modules/home/editor/`        | ✏️ Neovim configuration (base, LSP, plugins, keymaps)        |
+| `modules/home/productivity.nix`| 📅 Productivity and communication tools                      |
+| `modules/home/terminal/`      | 🖥️ Terminal multiplexer and prompt settings                  |
 
 **Want to add a new language?**
 
 -   Devshell: Check `modules/devshells/` for examples
 -   LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
+-   CLI tools: Add to `modules/home/cli/programs.nix`
 
 ---
 
@@ -119,7 +157,6 @@ nix develop "$DOTFILES_PATH#python"
 Available devshells:
 - `python` - Python development environment
 - `haskell` - Haskell development environment
-- `markdown` - Markdown editing environment
 - `quarto` - Quarto publishing environment
 - `slidev` - Slidev presentation environment
 - `typst` - Typst document environment

@@ -3,7 +3,7 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-
+    # Core Nix ecosystem
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     flake-parts = {
@@ -13,6 +13,9 @@
 
     import-tree.url = "github:vic/import-tree";
 
+    systems.url = "github:nix-systems/default";
+
+    # Home-manager ecosystem
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,8 +27,6 @@
     };
 
     nur.url = "github:nix-community/NUR";
-
-    systems.url = "github:nix-systems/default";
 
   };
 
