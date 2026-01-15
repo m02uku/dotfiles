@@ -1,8 +1,9 @@
 <div align="center">
 
-# 🚀 Portable Nix Dev Environment
+# 🖥️ Hack Your Setup Like a Boss 🕵️‍♂️
 
-_A declarative, reproducible development environment using Nix and Home Manager._
+_This ain't your grandma's config. Nix + Home Manager = Reproducible Dev Chaos That Actually Works._  
+*(Because who wants to manually tweak configs on every machine? This bad boy deploys your dev fortress with one command. Boom! 💥)*
 
 [![Nix](https://img.shields.io/badge/Nix-5277C3?style=for-the-badge&logo=nix&logoColor=white)](https://nixos.org/)
 [![License](https://img.shields.io/github/license/s0r4d3v/dotfiles?style=for-the-badge)](LICENSE)
@@ -12,199 +13,107 @@ _A declarative, reproducible development environment using Nix and Home Manager.
 
 ---
 
-## 📋 Table of Contents
+## 🚀 Quick Setup (No Bullshit)
 
--   Prerequisites
--   Installation (New Machine)
--   Updating
--   Module Management
--   Directory Structure
--   Using Devshells
--   SSH Configuration
--   Tmux (Terminal Multiplexer)
--   Contributing
+- [Prerequisites](#-prerequisites)
+- [Install on New Machine](#-installation-new-machine)
+- [Update Your Hack](#-updating)
+- [Customize & Pwn](#-module-management)
+- [Devshells & Tools](#using-devshells)
+- [Troubleshoot Like a Pro](#-troubleshooting)
 
 ---
 
-## 📋 Prerequisites
+## 🔑 Prerequisites
 
-Before getting started, ensure you have Nix installed on your system.
-
-### Install Nix
-
+**Install Nix** (or your setup's DOA).  
+One-liner:  
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install; exec $SHELL
-```
-
-For other installation methods, see the [official Nix documentation](https://nixos.org/download).
+```  
+*(Other ways? [Nix docs](https://nixos.org/download) – but this one's the hacker's choice.)*
 
 ---
 
 ## 🆕 Installation (New Machine)
 
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/s0r4d3v/dotfiles.git
-   cd dotfiles
-   ```
-
-2. **Build and activate the configuration**
-
-   ```bash
-   nix build ".#homeConfigurations.$(whoami).activationPackage"
-   ./result/activate
-   ```
-
-3. **Optional: Move to ghq-managed location** (if using ghq)
-
-   ```bash
-   # Move to ghq-managed location (ghq is now available)
-   rm -rf ../dotfiles
-   ghq get https://github.com/s0r4d3v/dotfiles.git
-   ```
-
-4. **Verify installation**
-
-   ```bash
-   # Check if tools are available
-   nd python  # Enter Python devshell
-   tm         # Start Tmux
-   v          # Open Neovim
-   ```
+**Clone & Deploy (3 Steps to Glory):**  
+```bash
+git clone https://github.com/s0r4d3v/dotfiles.git && cd dotfiles
+nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate
+# Optional: ghq get https://github.com/s0r4d3v/dotfiles.git  # For the organized hacker
+```  
+**Test Your Hack:** `nd python`, `tm`, `v` – If it works, you're a wizard. 🧙‍♂️
 
 ---
 
 ## 🔄 Updating
 
-To pull the latest changes from GitHub and apply them to your local setup:
-
+**Stay Fresh (No Stale Configs Allowed):**  
 ```bash
-cd ~/ghq/github.com/s0r4d3v/dotfiles
-git pull
-nix build ".#homeConfigurations.$(whoami).activationPackage"
-./result/activate
-```
-
-This will:
-- Pull the latest version from GitHub.
-- Rebuild the configuration with any new changes.
-- Apply the updates to your user environment.
+cd ~/ghq/github.com/s0r4d3v/dotfiles && git pull
+nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate
+```  
+*(Pulls updates, rebuilds, deploys. Like updating your memes – keep 'em current!)*
 
 ---
 
 ## 🛠️ Module Management
 
-### Adding or Updating Modules
+**Add/Modify Modules (Hack Your Config):**  
+- New module? Drop `.nix` in `modules/home/` (e.g., `cli/my-tool.nix`), define in flake.  
+- Edit existing: Tweak files in `modules/home/`, rebuild: `nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate`.  
 
-Modules are automatically loaded via `import-tree`. To add a new module:
-
-1. Create a new `.nix` file in the appropriate `modules/home/` subdirectory (e.g., `modules/home/cli/my-tool.nix`).
-2. Define it as `flake.modules.homeManager.<name> = { ... }: { ... };`.
-3. Rebuild and activate: `nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate`.
-
-### Customizing Existing Modules
-
-Edit the relevant files in `modules/home/` (e.g., `editor/lsp.nix` for LSP settings), then rebuild and activate as above.
-
-For detailed module structure, see the Directory Structure section below.
-
-### ⚠️ Troubleshooting
-
--   🚨 'builtins.toFile' warnings: Ignore.
--   🔐 SSH decryption failed: Check `~/.ssh/id_ed25519`.
--   🐚 Zsh glob errors: Run `setopt no_extended_glob`.
--   📦 Build fails: Ensure Nix is installed and run `nix flake update` to refresh inputs.
+**Troubleshoot Like a Boss:**  
+- Warnings? Ignore 'em (they're just complaining).  
+- SSH fail? Check `~/.ssh/id_ed25519`.  
+- Zsh errors? `setopt no_extended_glob`.  
+- Build bust? `nix flake update`.  
+*(Because even hackers hit walls – but we debug 'em.)*
 
 ---
 
 ## 📁 Directory Structure
 
-| Directory                     | Purpose                                                      |
-| :---------------------------- | :----------------------------------------------------------- |
-| `modules/devshells/`          | 🐍 Language-specific development environments                |
-| `modules/home/base.nix`       | 🏠 Base home-manager configuration                           |
-| `modules/home/browser/`       | 🌐 Web browser settings                                      |
-| `modules/home/cli/`           | 💻 CLI tools, Git config, and shell settings                 |
-| `modules/home/editor/`        | ✏️ Neovim configuration (base, LSP, plugins, keymaps)        |
-| `modules/home/productivity.nix`| 📅 Productivity and communication tools                      |
-| `modules/home/terminal/`      | 🖥️ Terminal multiplexer and prompt settings                  |
+| Dir | What It Does |
+|----|--------------|
+| `modules/devshells/` | 🐍 Dev envs for langs |
+| `modules/home/` | All your configs (editor, cli, browser, etc.) |
 
-**Want to add a new language?**
-
--   Devshell: Check `modules/devshells/` for examples
--   LSP config: Check `modules/home/editor/lsp.nix` (separate from devshells)
--   CLI tools: Add to `modules/home/cli/programs.nix`
+*(Add langs? Copy devshell examples, tweak LSP in editor/, add tools to cli/.)*
 
 ---
 
-## Using Devshells
+## 💻 Devshells & Tools
 
-Enter language-specific development environments:
-
-````bash
-# From dotfiles directory
-nix develop .#python
-
-# From any project directory (after running ./activate.sh)
-nd python
-
-# Or explicitly
-nix develop "$DOTFILES_PATH#python"
-
-# Other languages: Check modules/devshells/ directory!
-
-Available devshells:
-- `python` - Python development environment
-- `haskell` - Haskell development environment
-- `quarto` - Quarto publishing environment
-- `slidev` - Slidev presentation environment
-- `typst` - Typst document environment
-
-**Tip:** LSP features activate automatically when you open files in supported languages.
+**Enter Dev Mode:**  
+`nix develop .#python` or `nd python` (after activate).  
+*(Available: python, haskell, quarto, slidev, typst. LSP auto-activates – magic! ✨)*
 
 ---
 
-## Project Environments with Direnv
+## 🏗️ Project Envs (Direnv Style)
 
-For project-specific environments that activate automatically:
-
+**Auto-Activate Per Project:**  
 ```bash
-# Copy template to your project
-cp -r modules/templates/python-ml ~/your-project
-cd ~/your-project
-
-# Create .envrc file
-echo "use flake" > .envrc
-
-# Edit flake.nix for your needs
-# Then activate
-direnv allow
-
-# Environment activates automatically when you cd into the project!
-````
-
-**Tip:** Templates include ready-to-use `flake.nix` files.
+cp -r modules/templates/python-ml ~/project && cd ~/project
+echo "use flake" > .envrc && direnv allow
+```  
+*(Edit flake.nix, cd in – boom, env loads. Templates ready to fork!)*
 
 ---
 
-### SSH Configuration Management
+## 🔐 SSH & 🖥️ Tmux
 
-SSH settings are managed manually. Store your SSH config at `~/.ssh/config` and private keys in `~/.ssh/`. No Nix-managed encryption or decryption.
+**SSH:** Manual setup at `~/.ssh/`. (No Nix crypto – keep your keys safe, hacker!)  
 
-## Tmux (Terminal Multiplexer)
+**Tmux:** `tm` to start. Prefix: `Ctrl-a`.  
+- `c` new window, `|`/`-` split, `h/j/k/l` nav, `r` reload.  
+*(Multitask like a boss. [Docs](https://github.com/tmux/tmux/wiki) for more.)*
 
-Tmux provides panes, tabs, and windows for terminal management.
+---
 
-### Usage
+## 🤝 Contributing
 
--   **Start Tmux**: Use `tm`.
--   **Prefix Key**: `Ctrl-a` (like screen).
--   **Common Commands**:
--   `Ctrl-a c` - Create new window
--   `Ctrl-a |` - Vertical split
--   `Ctrl-a -` - Horizontal split
--   `Ctrl-a h/j/k/l` - Navigate panes
--   `Ctrl-a r` - Reload config
-
-See [Tmux documentation](https://github.com/tmux/tmux/wiki) for details.
+Fork, hack, PR. Ideas? [Issues](https://github.com/s0r4d3v/dotfiles/issues).  
+*(Let's build the ultimate dev fortress together! 🏰)*
