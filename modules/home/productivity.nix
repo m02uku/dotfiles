@@ -1,13 +1,13 @@
 { ... }:
 {
-  flake.modules.homeManager.messaging =
+  flake.modules.homeManager.productivity =
     { pkgs, ... }:
     {
-      nixpkgs.config.allowUnfree = true;
       home.packages = with pkgs; [
         discord
         slack
         zoom-us
+        obsidian
       ];
 
       # Discord settings notes:
@@ -27,5 +27,22 @@
       # - Settings > Privacy: Review camera/microphone permissions
       #
       # For enterprise: SSO settings are configured through the app
+
+      # Obsidian settings notes:
+      # - Vault location: Choose a synced folder (iCloud, Dropbox, etc.)
+      # - Recommended plugins (install via Community Plugins):
+      #   - Vim mode: Enable in Settings > Editor > Vim key bindings
+      #   - Git: For version control of notes
+      #   - Dataview: For dynamic queries
+      #   - Templater: For note templates
+      #
+      # Theme recommendations:
+      # - Minimal Theme (clean, customizable)
+      # - Things Theme (iOS-like design)
+      #
+      # Sync options:
+      # - Obsidian Sync (paid, official)
+      # - Git (free, manual/automated commits)
+      # - iCloud/Dropbox (free, folder-based)
     };
 }

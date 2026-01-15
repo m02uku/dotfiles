@@ -1,0 +1,174 @@
+{ ... }:
+{
+  # UI: Colorscheme, Statusline, Snacks
+  flake.modules.homeManager.neovim-plugins = {
+    programs.nixvim = {
+      colorschemes.dracula = {
+        enable = true;
+      };
+
+      plugins.web-devicons = {
+        enable = true;
+      };
+
+      plugins.bufferline = {
+        enable = true;
+        settings = {
+          options = {
+            mode = "buffers";
+            separator_style = "slant";
+            diagnostics = "nvim_lsp";
+            offsets = [
+              {
+                filetype = "neo-tree";
+                text = "Neo-tree";
+                highlight = "Directory";
+                text_align = "left";
+              }
+            ];
+          };
+        };
+      };
+
+      plugins.lualine = {
+        enable = true;
+        settings.options = {
+          theme = "auto";
+          globalstatus = true;
+          component_separators = {
+            left = "│";
+            right = "│";
+          };
+          section_separators = {
+            left = "";
+            right = "";
+          };
+        };
+      };
+
+      plugins.mini = {
+        enable = true;
+        mockDevIcons = true;
+        modules = {
+          icons = { };
+          starter = {
+            header = ''
+              ▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄   ▄ ▄▄   ▄▄
+              █  █▄█  █  ▄    █       █  █ █  █   █ █ █  █ █  █
+              █       █ █ █   █▄▄▄▄   █  █ █  █   █▄█ █  █ █  █
+              █       █ █ █   █▄▄▄▄█  █  █▄█  █      ▄█  █▄█  █
+              █       █ █▄█   █ ▄▄▄▄▄▄█       █     █▄█       █
+              █ ██▄██ █       █ █▄▄▄▄▄█       █    ▄  █       █
+              █▄█   █▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄█ █▄█▄▄▄▄▄▄▄█
+            '';
+            evaluate_single = true;
+          };
+          surround = { };
+          pairs = { };
+          comment = { };
+          bufremove = { };
+          splitjoin = { };
+          move = { };
+          ai = { };
+        };
+      };
+
+      plugins.snacks = {
+        enable = true;
+        settings = {
+          notifier.enabled = true;
+          statuscolumn.enabled = true;
+          indent.enabled = true;
+          scroll.enabled = true;
+          bigfile.enabled = true;
+          quickfile.enabled = true;
+          words.enabled = true;
+          picker.enabled = true;
+          lazygit.enabled = true;
+          terminal.enabled = true;
+          git.enabled = true;
+        };
+      };
+
+      plugins.treesitter = {
+        enable = true;
+        highlight.enable = true;
+        settings.ensure_installed = [
+          "python"
+          "nix"
+          "markdown"
+          "lua"
+          "vim"
+          "vimdoc"
+          "r"
+          "julia"
+          "bash"
+          "html"
+          "quarto"
+        ];
+      };
+
+      plugins.flash = {
+        enable = true;
+        settings.modes.search.enabled = true;
+      };
+
+      plugins.oil = {
+        enable = true;
+        settings = {
+          default_file_explorer = true;
+          columns = [
+            "icon"
+            "permissions"
+            "size"
+            "mtime"
+          ];
+          keymaps = {
+            "\\" = "actions.close";
+          };
+          skip_confirm_for_simple_edits = true;
+          view_options = {
+            show_hidden = true;
+          };
+        };
+      };
+
+      plugins.bullets = {
+        enable = true;
+        settings = {
+          bullets_enabled_file_types = [
+            "markdown"
+            "text"
+            "gitcommit"
+            "scratch"
+            "quarto"
+          ];
+        };
+      };
+
+      plugins.quarto-nvim = {
+        enable = true;
+      };
+
+      plugins.which-key = {
+        enable = true;
+        settings.delay = 200;
+      };
+
+      plugins.gitsigns = {
+        enable = true;
+        settings = {
+          signs = {
+            add.text = "│";
+            change.text = "│";
+            delete.text = "_";
+            topdelete.text = "‾";
+            changedelete.text = "~";
+          };
+          current_line_blame = true;
+          current_line_blame_opts.delay = 500;
+        };
+      };
+    };
+  };
+}
