@@ -58,7 +58,7 @@
           lg = "lazygit";
 
           # Ghq
-          repo = "cd $(ghq list -p | fzf --delimiter=/ --nth=-2,-1)";
+          repo = "cd $(ghq list --full-path | fzf)";
 
           # Editor
           v = "nvim";
