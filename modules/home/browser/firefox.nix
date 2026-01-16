@@ -28,10 +28,10 @@
             # https://kb.mozillazine.org/About:config_entries
             "browser.startup.homepage" = "https://duckduckgo.com/";
             "browser.startup.page" = 1;  # same as homepage
-            "browser.tabs.autoHide" = true;  # hide tab bar when only 1 tab
             "browser.compactmode.show" = true;
             "browser.cache.disk.enable" = false;
             "browser.download.folderList" = 0;  # downloads folder
+            "browser.tabs.autoHide" = true;  # hide tab bar when only 1 tab
             "browser.tabs.closeButtons" = 2;  # don't display any close buttons
             "browser.tabs.insertRelatedAfterCurrent" = false;  # new tab at the rightmost
             "browser.tabs.loadOnNewTab" = 1;  # homepage
