@@ -12,14 +12,7 @@
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
       perSystem =
-        {
-          config,
-          self',
-          inputs',
-          pkgs,
-          system,
-          ...
-        }:
+        { config, self', inputs', pkgs, system, ... }:
         {
           devShells.default = pkgs.mkShell {
             packages = [

@@ -91,7 +91,6 @@ To set up direnv in an existing project:
 
 ```bash
 initdirenv
-echo "use flake" > .envrc
 ```
 
 This initializes a basic flake with direnv support. Edit `flake.nix` to add packages, and the environment will load automatically.
@@ -105,8 +104,3 @@ This initializes a basic flake with direnv support. Edit `flake.nix` to add pack
 
 See [Tmux documentation](https://github.com/tmux/tmux/wiki) for more details.
 
----
-
-## Contributing
-
-Fork the repository, make changes, and submit a pull request. Report issues or suggest features in [GitHub Issues](https://github.com/s0r4d3v/dotfiles/issues).

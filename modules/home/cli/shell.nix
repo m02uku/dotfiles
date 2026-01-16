@@ -86,7 +86,7 @@
           oc = "opencode";
 
           # Direnv setup
-          initdirenv = "nix flake init -t $DOTFILES_PATH#direnv && direnv allow";
+          initdirenv = "nix flake init -t $DOTFILES_PATH#direnv && echo \"use flake\" > .envrc && git add flake.nix .envrc && direnv allow";
         };
       };
 
