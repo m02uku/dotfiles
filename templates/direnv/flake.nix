@@ -15,7 +15,7 @@
         { config, self', inputs', pkgs, system, ... }:
         {
           devShells.default = pkgs.mkShell {
-            packages = [
+            packages = with pkgs; [
               # Add your development packages here
             ];
           };
