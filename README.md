@@ -69,6 +69,7 @@ nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activat
 - SSH issues: Check `~/.ssh/id_ed25519`.
 - Zsh errors: Run `setopt no_extended_glob`.
 - Build failures: Try `nix flake update`.
+- "nix-your-shell is currently not installed" error: Clear shell cache with `rm -f ~/.zcompdump* ~/.zshrc.zwc` and restart shell with `exec zsh`.
 
 ---
 
