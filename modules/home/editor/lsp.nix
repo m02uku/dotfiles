@@ -36,6 +36,24 @@
           };
         };
 
+        plugins.treesitter = {
+          enable = true;
+          highlight.enable = true;
+          settings.ensure_installed = [
+            "python"
+            "nix"
+            "markdown"
+            "lua"
+            "vim"
+            "vimdoc"
+            "r"
+            "julia"
+            "bash"
+            "html"
+            "quarto"
+          ];
+        };
+
         plugins.lsp = {
           enable = true;
           servers = {
