@@ -14,7 +14,13 @@ in
         map (userName: {
           name = userName;
           value = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = import inputs.nixpkgs { inherit system; };
+            pkgs = import inputs.nixpkgs { 
+              inherit system; 
+              overlays = [ 
+                inputs.nur.overlays.default 
+                inputs.brew-nix.overlays.default 
+              ];
+            };
             extraSpecialArgs = {
               user = userName;
               homeDir =
@@ -22,10 +28,6 @@ in
                   "/Users/${userName}"
                 else
                   "/home/${userName}";
-              nurPkgs = import inputs.nixpkgs {
-                inherit system;
-                overlays = [ inputs.nur.overlays.default ];
-              };
             };
             modules = [ inputs.nixvim.homeModules.nixvim ] ++ hmModules;
           };

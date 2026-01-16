@@ -5,28 +5,34 @@
     {
       fonts.fontconfig.enable = true;
       home.packages = with pkgs; [
-        maple-mono-nf-cn
+        maple-mono.NF-CN
       ];
 
       programs.ghostty = {
         enable = true;
-        package =
-          if pkgs.stdenv.isLinux then
-            pkgs.ghostty
-          else if pkgs.stdenv.isDarwin then
-            pkgs.brewCasks.ghostty
-          else
-            throw "unsupported system ${pkgs.stdenv.hostPlatform.system}";
+        package = if pkgs.stdenv.isDarwin then pkgs.brewCasks.ghostty else pkgs.ghostty;
         settings = {
           font-family = "Maple Mono NF CN";
           font-size = 10;
+          cursor-style = "block";
+          cursor-style-blink = false;
+          mouse-hide-while-typing = true;
           theme = "dracula";
           background-opacity = 0.8;
-          keybind = [
-            "ctrl+shift+f=toggle_fullscreen"
-          ];
+          background-opacity-cells = true;
+          background-blur = 10;
           window-decoration = "auto";
-          macos-titlebar-style = "transparent";
+          macos-titlebar-style = "hidden";
+          macos-titlebar-proxy-icon = "hidden";
+          maximize = true;
+          focus-follows-mouse = false;
+          quick-terminal-position = "right";
+          quick-terminal-screen = "main";
+          keybind = [
+            "ctrl+shift+f=toggle_maximize"
+            "global:ctrl+shift+h=toggle_visibility"
+            "global:ctrl+shift+i=toggle_quick_terminal"
+          ];
         };
         enableZshIntegration = true;
       };

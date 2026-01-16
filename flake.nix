@@ -28,6 +28,16 @@
 
     nur.url = "github:nix-community/NUR";
 
+    brew-nix = {
+      url = "github:BatteredBunny/brew-nix";
+      inputs.brew-api.follows = "brew-api";
+    };
+
+    brew-api = {
+      url = "github:BatteredBunny/brew-api";
+      flake = false;
+    };
+
   };
 
 }

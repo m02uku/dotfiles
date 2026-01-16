@@ -1,10 +1,11 @@
 { ... }:
 {
   flake.modules.homeManager.firefox =
-    { nurPkgs, ... }:
+    { pkgs, ... }:
     {
       programs.firefox = {
         enable = true;
+        # package = if pkgs.stdenv.isDarwin then pkgs.brewCasks.firefox else pkgs.firefox;
         languagePacks = [
           "ja"
           "en-GB"
@@ -16,7 +17,7 @@
             default = "google";
             force = true;
           };
-          extensions.packages = with nurPkgs.nur.repos.rycee.firefox-addons; [
+          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
             ublock-origin # 広告ブロック
             vimium-c # Vimキーバインド
           ];
