@@ -48,3 +48,9 @@ in project root for direnv setup.
 Start: `tm`
 
 Keybindings: `Ctrl-a` prefix, `c` new window, `|`/`-` splits, `h/j/k/l` navigate, `r` reload.
+
+## Additional Configurations
+
+- **Browser**: Firefox (configured via Firefox account sync, login required)
+- **Mailer**: None (use browser-based Gmail)
+- **Calendar**: None (use browser-based Google Calendar)

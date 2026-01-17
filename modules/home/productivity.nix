@@ -2,12 +2,15 @@
 {
   flake.modules.homeManager.productivity =
     { pkgs, ... }:
+    let
+    in
     {
       home.packages = with pkgs; [
         discord
         slack
         zoom-us
         obsidian
+        raycast
       ];
 
       # Discord settings notes:
