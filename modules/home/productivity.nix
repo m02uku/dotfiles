@@ -1,17 +1,17 @@
 { ... }:
 {
   flake.modules.homeManager.productivity =
-    { pkgs, ... }:
-    let
-    in
+    { pkgs, lib, ... }:
     {
-      home.packages = with pkgs; [
-        discord
-        slack
-        zoom-us
-        obsidian
-        raycast
-      ];
+      home.packages =
+        with pkgs;
+        [
+          discord
+          slack
+          zoom-us
+          obsidian
+        ]
+        ++ lib.optionals pkgs.stdenv.isDarwin [ raycast ];
 
       # Discord settings notes:
       # - Discord stores settings in ~/Library/Application Support/discord/ (macOS)
