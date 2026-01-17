@@ -117,19 +117,6 @@
           };
         };
 
-        plugins.bullets = {
-          enable = true;
-          settings = {
-            enabled_file_types = [
-              "markdown"
-              "text"
-              "gitcommit"
-              "scratch"
-              "quarto"
-            ];
-          };
-        };
-
         plugins.quarto = {
           enable = true;
         };
@@ -158,13 +145,21 @@
           };
         };
 
-        # extraPlugins = with pkgs.vimPlugins; [
-        #
-        # ];
-
-        # extraConfigLua = ''
-        #
-        # '';
+        plugins.bullets = {
+          enable = true;
+          settings = {
+            enabled_file_types = [
+              "markdown"
+              "text"
+              "gitcommit"
+              "scratch"
+              "quarto"
+            ];
+            outline_levels = [ "std-" ];
+            set_mappings = true;
+            pad_right = true;
+          };
+        };
       };
     };
 }
