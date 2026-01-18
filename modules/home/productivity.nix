@@ -10,6 +10,7 @@
           slack
           zoom-us
           obsidian
+          bitwarden-desktop
         ]
         ++ lib.optionals pkgs.stdenv.isDarwin [ raycast ];
 
