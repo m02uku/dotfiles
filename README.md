@@ -25,7 +25,7 @@ cd ~/ghq/github.com/s0r4d3v/dotfiles && git pull && nix build ".#homeConfigurati
 
 Add modules in `modules/home/`, edit files, rebuild:
 ```bash
-nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate && source ~/.zshrc
+nix build ".#homeConfigurations.$(whoami).activationPackage" && ./result/activate && source ~/.zshrc && cd .. && rm -rf dotfiles && ghq get s0r4d3v/dotfiles
 ```
 
 ## Troubleshooting
