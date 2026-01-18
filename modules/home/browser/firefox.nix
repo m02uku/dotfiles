@@ -22,7 +22,7 @@
           # Feature Disabling
           DisableBuiltinPDFViewer       = true;
           DisableFirefoxStudies         = true;
-          DisableFirefoxAccounts        = true;
+          # DisableFirefoxAccounts        = true;
           DisableFirefoxScreenshots     = true;
           DisableForgetButton           = true;
           DisableMasterPasswordCreation = true;
