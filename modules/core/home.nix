@@ -4,6 +4,7 @@ let
   users = [
     "soranagano"
     "s0r4d3v"
+    "m"
   ]; # Add more users here for multi-machine support
 in
 {
