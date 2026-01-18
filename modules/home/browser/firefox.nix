@@ -141,7 +141,8 @@
               # extensions list: https://nur.nix-community.org/repos/rycee/
               ublock-origin
               vimium-c
-              onepassword-password-manager
+              # onepassword-password-manager
+              bitwarden
             ];
           };
           settings = {
