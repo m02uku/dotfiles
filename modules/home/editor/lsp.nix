@@ -52,6 +52,7 @@
               "julia"
               "bash"
               "html"
+              "css"
               # "quarto"
             ];
           };
@@ -75,6 +76,8 @@
               enable = true;
               installGhc = false;
             };
+            html.enable = true;
+            cssls.enable = true;
           };
         };
 
@@ -88,11 +91,15 @@
           enable = true;
           settings = {
             keymap.preset = "default";
-            sources.default = [
-              "lsp"
-              "path"
-              "buffer"
-            ];
+            sources = {
+              default = [
+                "lsp"
+                "path"
+                "snippets"
+                "buffer"
+              ];
+            };
+            snippets.preset = "luasnip";
             completion = {
               accept.auto_brackets.enabled = true;
               documentation.auto_show = true;
@@ -142,6 +149,8 @@
               typescript = [ "prettierd" ];
               vue = [ "prettierd" ];
               haskell = [ "ormolu" ];
+              html = [ "prettierd" ];
+              css = [ "prettierd" ];
             };
           };
         };
