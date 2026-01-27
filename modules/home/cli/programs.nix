@@ -7,7 +7,6 @@
         # Modern ls/cat
         eza
         bat
-        yazi
 
         # JSON/HTTP
         jq
@@ -65,6 +64,15 @@
 
         codex = {
           enable = true;
+        };
+
+        yazi = {
+          enable = true;
+          settings = {
+            manager = {
+              show_hidden = true;
+            };
+          };
         };
       };
     };
